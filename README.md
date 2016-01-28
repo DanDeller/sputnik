@@ -12,7 +12,7 @@ https://github.com/codekitchen/dinghy
 docker-compose build
 ```
 
-<h2>Useful Commands<h2>
+<h2>Useful Commands</h2>
 <h3>Check all containers:</h3>
 ```
 docker ps -a
