@@ -20,4 +20,4 @@ RUN npm install
 #   rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
 
 EXPOSE 3000
-# CMD ["node", "index.js"]
+# CMD ["node", "server.js"]
