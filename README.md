@@ -9,3 +9,10 @@ Prerequisites
 ```
 Install Dinghy: https://github.com/codekitchen/dinghy
 ```
+
+<h3>
+Build docker container
+</h3>
+```
+docker-compose build
+```
