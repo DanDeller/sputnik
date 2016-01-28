@@ -6,9 +6,9 @@ A node/express app built on docker.
 <h2>
 Prerequisites
 </h2>
-<h2>
+<h4>
 Install Dinghy:
-</h2>
+</h4>
 ```
 https://github.com/codekitchen/dinghy
 ```
