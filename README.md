@@ -3,11 +3,14 @@
 A node/express app built on docker.
 </h2>
 
-<h3>
+<h2>
 Prerequisites
-</h3>
+</h2>
+<h2>
+Install Dinghy:
+</h2>
 ```
-Install Dinghy: https://github.com/codekitchen/dinghy
+https://github.com/codekitchen/dinghy
 ```
 
 <h3>
@@ -29,3 +32,10 @@ docker-compose build
 <h2>
 Useful Commands
 <h2>
+
+<h3>
+Check all containers:
+</h3>
+```
+docker ps -a
+```
