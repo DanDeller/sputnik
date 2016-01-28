@@ -12,11 +12,16 @@ https://github.com/codekitchen/dinghy
 docker-compose build
 ```
 
-<br>
-<br>
+<h3>Build docker image:</h3>
+```
+docker-compose up
+```
+
 <br>
 <br>
 <hr>
+<br>
+<br>
 
 <h2>Useful Commands</h2>
 <h3>Check all containers:</h3>
