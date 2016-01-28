@@ -1,6 +1,15 @@
+rethinkdb:
+  image: rethinkdb
+  ports:
+    - "8080:8080"
+    - "28015:28015"
+    - "29105:29105"
+
 web:
   build: .
   ports:
     - "3000:3000"
+  links:
+    - rethinkdb
   environment:
     VIRTUAL_HOST: myrailsapp.docker

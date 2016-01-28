@@ -11,5 +11,9 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/username/repository.git"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "rethinkdb": "^2.2.1"
   }
 }
