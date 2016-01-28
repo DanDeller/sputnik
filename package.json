@@ -13,7 +13,10 @@
     "url": "git://github.com/username/repository.git"
   },
   "dependencies": {
+    "body-parser": "^1.14.2",
     "express": "^4.13.4",
+    "lodash": "^4.0.1",
+    "path": "^0.12.7",
     "rethinkdb": "^2.2.1"
   }
 }

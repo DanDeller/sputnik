@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
-// var router = express.Router();
+var router = express.Router();
+var path = require('path');
+var bodyParser = require('body-parser');
+var _ = require('lodash');
 
 app.get('/', function(req, res) {
   res.send('hello dan');
