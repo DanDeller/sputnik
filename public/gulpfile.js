@@ -14,9 +14,9 @@ gulp.task('scripts', function() {
     .pipe(concat('main.js'))
     .pipe(babel())
     .pipe(notify({message: 'Scripts task complete'}))
-    .pipe(ignore.exclude([ "**/*.map" ]))
+    // .pipe(ignore.exclude([ "**/*.map" ]))
     .pipe(uglify())
-    .pipe(gulp.dest('../dist'));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('watch', function() {
