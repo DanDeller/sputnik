@@ -24,6 +24,11 @@ docker-compose build
 docker-compose up
 ```
 
+<h3>Start gulp</h3>
+```
+gulp
+```
+
 <h3>View front end:</h3>
 ```
 http://myrailsapp.docker:3000/
