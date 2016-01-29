@@ -70,3 +70,9 @@ docker rm 'container-name'
 ```
 docker rmi 'image-id'
 ```
+
+<h3>Delete all images</h3>
+```
+docker rmi $(docker images -q)
+```
+
