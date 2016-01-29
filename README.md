@@ -7,6 +7,11 @@
 https://github.com/codekitchen/dinghy
 ```
 
+<h3>Start dinghy</h3>
+```
+dinghy up
+```
+
 <h3>Build docker container:</h3>
 ```
 docker-compose build
