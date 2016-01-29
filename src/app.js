@@ -1,4 +1,4 @@
-function Person(){
+function Person() {
   this.age = 0;
 
   setInterval(() => {
