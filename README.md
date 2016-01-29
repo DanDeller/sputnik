@@ -10,7 +10,7 @@
 git clone https://github.com/DanDeller/sputnik.git
 ```
 
-<h3>Run npm install</h3>
+<h3>Get npm modules</h3>
 ```
 npm install
 ```
