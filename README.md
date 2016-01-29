@@ -3,10 +3,7 @@
 
 <h2>Prerequisites</h2>
 <h3>Install Dinghy:</h3>
-```
-https://github.com/codekitchen/dinghy
-```
-[I'm an inline-style link](https://www.google.com)
+[https://github.com/codekitchen/dinghy](https://github.com/codekitchen/dinghy)
 
 <h3>Start dinghy</h3>
 ```
