@@ -1,3 +1,5 @@
+alert('look more uglified code');
+
 function Person() {
   this.age = 0;
 

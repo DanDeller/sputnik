@@ -1,1 +1,0 @@
-"use strict";function Person(){var e=this;this.age=0,setInterval(function(){e.age++},1e3)}var p=new Person;
