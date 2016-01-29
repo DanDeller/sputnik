@@ -17,15 +17,15 @@ dinghy up
 docker-compose build
 ```
 
-<h3>Build docker image:</h3>
-```
-docker-compose up
-```
-
 <h3>Start gulp</h3>
 ```
 cd public
 gulp
+```
+
+<h3>Build docker image:</h3>
+```
+docker-compose up
 ```
 
 <h3>View front end:</h3>
