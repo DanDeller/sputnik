@@ -12,6 +12,8 @@ https://github.com/codekitchen/dinghy
 dinghy up
 ```
 
+>Quick note: If you run dinghy up and get the error "To connect the Docker client to the Docker daemon, please set:" simply copy, paste, and run each of the exports in the same terminal window.
+
 <h3>Build docker container:</h3>
 ```
 docker-compose build
