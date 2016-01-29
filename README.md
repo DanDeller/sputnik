@@ -17,7 +17,7 @@ dinghy up
 docker-compose build
 ```
 
-<h3>Start gulp</h3>
+<h3>Start gulp (new tab)</h3>
 ```
 cd public
 gulp
