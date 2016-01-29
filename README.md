@@ -24,6 +24,7 @@ docker-compose up
 
 <h3>Start gulp</h3>
 ```
+cd public
 gulp
 ```
 
