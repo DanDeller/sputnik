@@ -7,6 +7,13 @@
 https://github.com/codekitchen/dinghy
 ```
 
+<h3>Start dinghy</h3>
+```
+dinghy up
+```
+
+>Quick note: If you run dinghy up and get the error `To connect the Docker client to the Docker daemon, please set:` simply copy, paste, and run each of the exports in the same terminal window. Once finished run `dinghy up` again. When it's started your terminal should read `Your environment variables are already set correctly`.
+
 <h3>Build docker container:</h3>
 ```
 docker-compose build
