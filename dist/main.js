@@ -1,12 +1,8 @@
-"use strict";
-
-function Person() {
-  var _this = this;
-
+function Person(){
   this.age = 0;
 
-  setInterval(function () {
-    _this.age++; // |this| properly refers to the person object
+  setInterval(() => {
+    this.age++; // |this| properly refers to the person object
   }, 1000);
 }
 

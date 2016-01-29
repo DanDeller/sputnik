@@ -9,9 +9,8 @@ gulp.task('scripts', function() {
     	'../src/app.js'
     ])
 	  .pipe(concat('main.js'))
-	  .pipe(gulp.dest('dist'))
+	  .pipe(gulp.dest('../dist'))
 	  .pipe(babel())
-    .pipe(gulp.dest('../dist'))
 	  .pipe(notify({message: 'Scripts task complete'}));
 });
 
