@@ -11,9 +11,9 @@ gulp.task('scripts', function() {
   return gulp.src([
     	'../src/app.js'
     ])
-	  .pipe(concat('main.js'))
-	  .pipe(babel())
-	  .pipe(notify({message: 'Scripts task complete'}))
+    .pipe(concat('main.js'))
+    .pipe(babel())
+    .pipe(notify({message: 'Scripts task complete'}))
     .pipe(ignore.exclude([ "**/*.map" ]))
     .pipe(uglify())
     .pipe(gulp.dest('../dist'));
