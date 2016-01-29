@@ -5,6 +5,16 @@
 <h3>Install Dinghy:</h3>
 [https://github.com/codekitchen/dinghy](https://github.com/codekitchen/dinghy)
 
+<h3>Clone sputnik repo</h3>
+```
+git clone https://github.com/DanDeller/sputnik.git
+```
+
+<h3>Run npm install</h3>
+```
+npm install
+```
+
 <h3>Start dinghy</h3>
 ```
 dinghy up
