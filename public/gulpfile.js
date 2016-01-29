@@ -6,18 +6,18 @@ var notify = require('gulp-notify');
 
 gulp.task('scripts', function() {
   return gulp.src([
-    	'src/app.js'
+    	'../src/app.js'
     ])
 	  .pipe(concat('main.js'))
 	  .pipe(gulp.dest('dist'))
 	  .pipe(babel())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('../dist'))
 	  .pipe(notify({message: 'Scripts task complete'}));
 });
 
 gulp.task('watch', function() {
   gulp.watch([
-    'src/app.js'
+    '../src/app.js'
     ],['scripts']);
 });
 
