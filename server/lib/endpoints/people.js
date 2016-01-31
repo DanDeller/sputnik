@@ -16,4 +16,18 @@ router.post('/people', function(req, res) {
 	});
 });
 
+router.patch('/people', function(req, res) {
+	People.patch(req, function(error, response) {
+		if (error) return res.end();
+		res.send(response);
+	});
+});
+
+router.delete('/people', function(req, res) {
+	People.delete(req, function(error, response) {
+		if (error) return res.end();
+		res.send(response);
+	});
+});
+
 module.exports = router;
