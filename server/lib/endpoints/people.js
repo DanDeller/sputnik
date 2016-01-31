@@ -9,4 +9,11 @@ router.get('/people', function(req, res) {
 	});
 });
 
+router.post('/people', function(req, res) {
+	People.post(req, function(error, response) {
+		if (error) return res.end();
+		res.send(response);
+	});
+});
+
 module.exports = router;
