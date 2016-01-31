@@ -4,6 +4,7 @@ var router = express.Router();
 var path = require('path');
 var bodyParser = require('body-parser');
 var requireDir = require('require-dir');
+var endpoints = requireDir('./server/lib/endpoints');
 var _ = require('lodash');
 
 app.get('/', function(req, res) {
@@ -13,9 +14,9 @@ app.get('/', function(req, res) {
 app.use(express.static(path.join(__dirname, './public')))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-// _.each(endpoints,function(middleware, name) {
-//   app.use(middleware);
-// });
+_.each(endpoints,function(name) {
+  app.use(name);
+});
 
 var server = app.listen(3000, function() {
   var port = server.address().port;

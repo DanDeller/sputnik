@@ -1,4 +1,4 @@
-console.log('look more uglified code');
+// console.log('look more uglified code');
 
 function Person() {
   this.age = 0;
