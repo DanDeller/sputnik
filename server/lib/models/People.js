@@ -2,7 +2,6 @@ var r = require('rethinkdb');
 var config = require('../../../config');
 var _ = require('lodash');
 
-
 module.exports = {
 	connect: function(callback) {
 		r.connect({
@@ -17,8 +16,7 @@ module.exports = {
 			return callback(err);
 		});
 	},
-
-	list: function(callback) {
+	list: function(request, callback) {
 		this.connect(function(err, connection) {
 			if (err) {
 				return callback(err);
@@ -32,13 +30,13 @@ module.exports = {
 				})
 		})
 	},
-	post: function(callback) {
+	post: function(request, callback) {
+		var currentPerson = request.body;
 		this.connect(function(err, connection) {
-			var currentPerson = request.body;
 			if (err) {
 				return callback(err);
 			}
-			r.db(config.db.name).table(config.tables.people).run(connection)
+			r.db('new').table('people').run(connection)
 				.insert({
 					name: currentPerson.name
 				}).then(function(response) {

@@ -21,7 +21,6 @@ _.each(endpoints,function(name) {
 
 var server = app.listen( config.server.port, function() {
   var port = config.server.port;
-
   console.log('App listening on port:' + port);
 });
 
