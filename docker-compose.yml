@@ -13,3 +13,7 @@ web:
     - rethinkdb
   environment:
     VIRTUAL_HOST: myrailsapp.docker
+    DB_HOST: rethinkdb
+    DB_PORT: 28015
+    DB_NAME: new
+  command: npm run start
