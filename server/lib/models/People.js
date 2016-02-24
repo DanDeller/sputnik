@@ -9,10 +9,11 @@ module.exports = {
 			port: config.db.port,
 			db: config.db.name
 		})
-	.then(function(connection){
+		.then(function(connection) {
+			console.log(connection)
 			return callback(null, connection);
 		})
-		.error(function(err){
+		.error(function(err) {
 			return callback(err);
 		});
 	},
@@ -21,11 +22,11 @@ module.exports = {
 			if (err) {
 				return callback(err);
 			}
-			r.db(config.db.name).table(config.db.tables.people).run(connection)
+			r.db('config.db.name').table(config.db.tables.people).run(connection)
 				.then(function(response) {
 					return callback(null, response);
 				})
-				.error(function(err){
+				.error(function(err) {
 					return callback(err);
 				})
 		})
@@ -36,7 +37,7 @@ module.exports = {
 			if (err) {
 				return callback(err);
 			}
-			r.db('new').table('people').run(connection)
+			r.db(config.db.name).table(config.db.tables.people).run(connection)
 				.insert({
 					name: currentPerson.name
 				}).then(function(response) {
@@ -44,7 +45,7 @@ module.exports = {
 				}).error(function(error) {
 					callback(error);
 				});
-		})	
+		})
 	},
 	patch: function(callback) {
 		this.connect(function(err, connection) {
