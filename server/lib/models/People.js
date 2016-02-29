@@ -10,7 +10,6 @@ module.exports = {
 			db: config.db.name
 		})
 		.then(function(connection) {
-			console.log(connection)
 			return callback(null, connection);
 		})
 		.error(function(err) {
@@ -22,9 +21,9 @@ module.exports = {
 			if (err) {
 				return callback(err);
 			}
-			r.db('config.db.name').table(config.db.tables.people).run(connection)
+			r.db(config.db.name).table(config.db.tables.people).run(connection)
 				.then(function(response) {
-					return callback(null, response);
+					return callback(null, response.toArray());
 				})
 				.error(function(err) {
 					return callback(err);
