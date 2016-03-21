@@ -12,7 +12,7 @@ web:
   links:
     - rethinkdb
   environment:
-    VIRTUAL_HOST: myrailsapp.docker
+    VIRTUAL_HOST: mynodeapp.docker
     DB_HOST: rethinkdb
     DB_PORT: 28015
     DB_NAME: new

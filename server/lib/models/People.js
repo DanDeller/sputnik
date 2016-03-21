@@ -10,7 +10,6 @@ module.exports = {
 			db: config.db.name
 		})
 		.then(function(connection) {
-			console.log(connection)
 			return callback(null, connection);
 		})
 		.error(function(err) {
