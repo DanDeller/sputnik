@@ -39,10 +39,10 @@ docker-compose up
 ```
 
 <h3>View front end:</h3>
-[http://myrailsapp.docker:3000/](http://myrailsapp.docker:3000/)
+[http://mynodeapp.docker:3000/](http://mynodeapp.docker:3000/)
 
 <h3>View rethinkdb data explorer</h3>
-[http://myrailsapp.docker:8080/](http://myrailsapp.docker:8080/)
+[http://mynodeapp.docker:8080/](http://mynodeapp.docker:8080/)
 
 <br>
 <br>
