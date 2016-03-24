@@ -16,6 +16,10 @@ module.exports = {
 			return callback(err);
 		});
 	},
+
+
+
+
 	list: function(request, callback) {
 		this.connect(function(err, connection) {
 			if (err) {
@@ -30,6 +34,10 @@ module.exports = {
 				})
 		})
 	},
+
+
+
+	
 	post: function(request, callback) {
 		var currentPerson = request.body;
 		this.connect(function(err, connection) {

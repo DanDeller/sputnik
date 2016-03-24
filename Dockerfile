@@ -15,5 +15,9 @@ RUN npm install
  RUN apk del make gcc g++ python && \
    rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
 
+ADD app/nodemon.json /src/nodemon.json
+
 # WebApp Ports
 EXPOSE 3000
+
+CMD npm start
