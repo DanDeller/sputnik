@@ -7,4 +7,7 @@ node_js:
   - "4.1"
   - "4.0"
   - "iojs"
+# env:
+#   - MY_VAR=EverythignIsAwesome
+#   - NODE_ENV=TEST
 # script: phpunit Test.php
