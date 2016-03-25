@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/DanDeller/sputnik.svg?branch=master)](https://travis-ci.org/DanDeller/sputnik)
+
 # Sputnik
 <h2>A node/express app built on docker.</h2>
 
@@ -75,4 +77,3 @@ docker rmi 'image-id'
 ```
 docker rmi $(docker images -q)
 ```
-
