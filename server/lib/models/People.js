@@ -16,14 +16,18 @@ module.exports = {
 			return callback(err);
 		});
 	},
-	list: function(request, callback) {
+	list: function(callback) {
 		this.connect(function(err, connection) {
 			if (err) {
 				return callback(err);
 			}
 			r.db(config.db.name).table(config.db.tables.people).run(connection)
-				.then(function(response) {
-					return callback(null, response.toArray());
+				.then(function(cursor) {
+					return cursor.toArray();
+				})
+				.then(function(users) {
+					console.log('this is all users:', users);
+					return callback(null, users);
 				})
 				.error(function(err) {
 					return callback(err);

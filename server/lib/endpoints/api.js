@@ -3,10 +3,15 @@ var router = express.Router();
 var People = require('../models/People');
 
 router.get('/people', function(req, res) {
-	People.list(req, function(error, response) {
-		console.log(response)
-		if (error) return res.end();
-		res.send(response);
+	People.list(function(error, response) {
+		if (error) {
+			console.log('getting errors');
+			return res.end();
+		}
+
+		console.log('users array:', response);
+
+		return res.json(response);
 	});
 });
 

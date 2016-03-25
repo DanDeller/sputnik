@@ -7,6 +7,9 @@ rethinkdb:
 
 web:
   build: .
+  working_dir: /src
+  volumes:
+    - ./:/src
   ports:
     - "3000:3000"
   links:
