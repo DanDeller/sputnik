@@ -6,3 +6,9 @@ rvm:
  - rbx
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
+env:
+  global:
+    - CI=true
+  matrix:
+    - TEST_DOC=false
+    - TEST_DOC=true
