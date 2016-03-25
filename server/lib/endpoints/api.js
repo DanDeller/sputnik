@@ -4,14 +4,9 @@ var People = require('../models/People');
 
 router.get('/people', function(req, res) {
 	People.list(function(error, response) {
-		if (error) {
-			console.log('getting errors');
-			return res.end();
-		}
-
+		if (error) return res.end();
 		console.log('users array:', response);
-
-		return res.json(response);
+		return res.send(response);
 	});
 });
 

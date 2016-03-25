@@ -26,7 +26,6 @@ module.exports = {
 					return cursor.toArray();
 				})
 				.then(function(users) {
-					console.log('this is all users:', users);
 					return callback(null, users);
 				})
 				.error(function(err) {
