@@ -18,10 +18,9 @@ module.exports = {
 	},
 	list: function(callback) {
 		this.connect(function(err, connection) {
-			if (err) {
-				return callback(err);
-			}
-			r.db(config.db.name).table(config.db.tables.people).run(connection)
+			if (err) return callback(err);
+			r.db(config.db.name).table(config.db.tables.people)
+			.run(connection)
 				.then(function(cursor) {
 					return cursor.toArray();
 				})
@@ -30,53 +29,54 @@ module.exports = {
 				})
 				.error(function(err) {
 					return callback(err);
-				})
-		})
+				});
+		});
 	},
 	post: function(request, callback) {
 		var currentPerson = request.body;
 		this.connect(function(err, connection) {
-			if (err) {
-				return callback(err);
-			}
-			r.db(config.db.name).table(config.db.tables.people).run(connection)
+			if (err) return callback(err);
+			r.db(config.db.name).table(config.db.tables.people)
 				.insert({
 					name: currentPerson.name
-				}).then(function(response) {
+				})
+				.run(connection)
+				.then(function(response) {
 					callback(null, response);
-				}).error(function(error) {
+				})
+				.error(function(error) {
 					callback(error);
 				});
-		})
+		});
 	},
 	patch: function(callback) {
 		this.connect(function(err, connection) {
 			var query = _.extend(request.body, request.params, request.query);
 			var id = query.id;
-			if (err) {
-				return callback(err);
-			}
-			r.db(config.db.name).table(config.tables.people).run(connection)
+			if (err) return callback(err);
+			r.db(config.db.name).table(config.tables.people)
+			.run(connection)
 			.then(function(response) {
 				callback(null, response);
-			}).error(function(error) {
+			})
+			.error(function(error) {
 				callback(error);
 			});
-		})
+		});
 	},
 	delete: function(callback) {
 		this.connect(function(err, connection) {
 			var currentId = request.query;
-			if (err) {
-				return callback(err);
-			}
-			r.db(config.db.name).table(config.tables.people).run(connection)
+			if (err) return callback(err)
+			r.db(config.db.name).table(config.tables.people)
+			.run(connection)
 			.then(function(response) {
 				callback(null, response);
-			}).error(function(error) {
+			})
+			.error(function(error) {
 				callback(error);
 			});
-		})
+		});
 	}
 };
 
