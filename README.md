@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/DanDeller/sputnik.svg?branch=master)](https://travis-ci.org/DanDeller/sputnik)
-[![Node version](https://img.shields.io/node/v/npm.svg?style=flat)](http://nodejs.org/download/)
+[![npm version](https://badge.fury.io/js/express.svg)](https://badge.fury.io/js/express)
 
 # Sputnik
 <h2>A node/express app built on docker.</h2>
