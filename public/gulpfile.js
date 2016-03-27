@@ -9,7 +9,7 @@ var ignore = require('gulp-ignore');
 
 gulp.task('scripts', function() {
   return gulp.src([
-    	'../src/app.js'
+      'src/js/**/*.js'
     ])
     .pipe(concat('main.js'))
     .pipe(babel())
@@ -20,7 +20,7 @@ gulp.task('scripts', function() {
 
 gulp.task('watch', function() {
   gulp.watch([
-    '../src/app.js'
+    'src/js/**/*.js'
     ],['scripts']);
 });
 

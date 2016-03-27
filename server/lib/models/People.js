@@ -42,39 +42,46 @@ module.exports = {
 				})
 				.run(connection)
 				.then(function(response) {
-					callback(null, response);
+					 return callback(null, response);
 				})
 				.error(function(error) {
-					callback(error);
+					 return callback(error);
 				});
 		});
 	},
-	patch: function(callback) {
+	patch: function(request, callback) {
 		this.connect(function(err, connection) {
 			var query = _.extend(request.body, request.params, request.query);
 			var id = query.id;
 			if (err) return callback(err);
-			r.db(config.db.name).table(config.tables.people)
+			r.db(config.db.name).table(config.db.tables.people)
+			.get(id)
+			.update(query)
 			.run(connection)
+			.then(function(cursor) {
+				return cursor.toArray();
+			})
 			.then(function(response) {
-				callback(null, response);
+				return callback(null, response);
 			})
 			.error(function(error) {
-				callback(error);
+				return callback(error);
 			});
 		});
 	},
-	delete: function(callback) {
+	delete: function(request, callback) {
 		this.connect(function(err, connection) {
 			var currentId = request.query;
 			if (err) return callback(err)
-			r.db(config.db.name).table(config.tables.people)
+			r.db(config.db.name).table(config.db.tables.people)
+			.get(currentId.id)
+			.delete()
 			.run(connection)
 			.then(function(response) {
-				callback(null, response);
+				return callback(null, response);
 			})
 			.error(function(error) {
-				callback(error);
+				return callback(error);
 			});
 		});
 	}
