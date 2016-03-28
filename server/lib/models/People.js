@@ -51,8 +51,8 @@ module.exports = {
 	},
 	patch: function(request, callback) {
 		this.connect(function(err, connection) {
-			var query = _.extend(request.body, request.params, request.query);
-			var id = query.id;
+			var query = _.extend(request.body,request.params,request.query);
+  		var id = query.id;
 			if (err) return callback(err);
 			r.db(config.db.name).table(config.db.tables.people)
 			.get(id)
@@ -72,6 +72,7 @@ module.exports = {
 	delete: function(request, callback) {
 		this.connect(function(err, connection) {
 			var currentId = request.query;
+			console.log(currentId)
 			if (err) return callback(err)
 			r.db(config.db.name).table(config.db.tables.people)
 			.get(currentId.id)
