@@ -1,11 +1,12 @@
 language: node_js
 node_js:
-  - 0.4
-  - 0.5
-  - 0.6
-cache:
-  directories:
-    - node_modules
+  - "5"
+  - "5.1"
+  - "4"
+  - "4.2"
+  - "4.1"
+  - "4.0"
+  - "iojs"
 # env:
 #   - MY_VAR=EverythignIsAwesome
 #   - NODE_ENV=TEST
