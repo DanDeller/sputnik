@@ -13,6 +13,6 @@ services:
 cache:
   directories:
     - node_modules
-script:
-  - docker-compose build
-  - docker-compose run test
+# script:
+#   - docker-compose build
+#   - docker-compose run test
