@@ -9,7 +9,7 @@ describe('api', function() {
 	describe('endPoints', function() {
 
 		// GET request - should return 200 status code
-		it('should return 200 on GET request', function(done) {
+		it('should return 200 on GET', function(done) {
 			chai.request(app)
 			.get('/people')
 			.end(function(err, res) {
@@ -20,9 +20,20 @@ describe('api', function() {
 		});
 
 		// POST request - should return 200 status code
-		it('should return 200 on POST request', function(done) {
+		it('should return 200 on POST', function(done) {
 			chai.request(app)
 			.post('/people')
+			.end(function(err, res) {
+				res.should.have.status(200);
+				if (err) return done(err);
+				done();
+			});
+		});
+
+		// DELETE request - should return 200 status code
+		it('should return 200 on DELETE', function(done) {
+			chai.request(app)
+			.delete('/people')
 			.end(function(err, res) {
 				res.should.have.status(200);
 				if (err) return done(err);
