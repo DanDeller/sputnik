@@ -10,8 +10,5 @@ node_js:
 cache:
   directories:
     - node_modules
-install:
-  - docker build -t sputnik .
-  - docker run -d -p 127.0.0.1:80:80 --name sputnik
 script:
-- docker ps | grep -q sputnik
+  - "npm test"
