@@ -10,6 +10,10 @@ node_js:
 sudo: required
 services:
   - docker
+before_install:
+  - dinghy up
+  - docker-compose build
+  - docker-compose up
 cache:
   directories:
     - node_modules
