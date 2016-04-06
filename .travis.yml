@@ -2,10 +2,6 @@ language: node_js
 node_js:
   - "5"
   - "5.1"
-  - "4"
-  - "4.2"
-  - "4.1"
-  - "4.0"
   - "iojs"
 
 sudo: required
@@ -19,6 +15,6 @@ cache:
   directories:
     - node_modules
 
-script:
-  - docker-compose build
-  - docker-compose run test
+# script:
+#   - docker-compose build
+#   - docker-compose run test
