@@ -17,5 +17,7 @@ cache:
 
 script:
   - docker-compose build
-  - docker-compose up
+  # Test if server will start
+  # Keep commented out for now
+  # - docker-compose up
   - npm test
