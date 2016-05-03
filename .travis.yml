@@ -17,4 +17,5 @@ cache:
 
 script:
   - docker-compose build
+  - docker-compose up
   - npm test
