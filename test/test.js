@@ -14,6 +14,7 @@ describe('api', function() {
 			.get('/people')
 			.end(function(err, res) {
 				res.should.have.status(200);
+				res.should.be.json;
 				if (err) return done(err);
 				done();
 			});
