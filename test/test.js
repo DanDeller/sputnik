@@ -26,6 +26,7 @@ describe('api', function() {
 			.post('/people')
 			.end(function(err, res) {
 				res.should.have.status(200);
+				res.body.should.be.a('object');
 				if (err) return done(err);
 				done();
 			});
