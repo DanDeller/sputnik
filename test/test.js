@@ -14,7 +14,7 @@ describe('api', function() {
 			.get('/people')
 			.end(function(err, res) {
 				res.should.have.status(200);
-				res.should.be.json;
+				res.body.should.be.a('object');
 				if (err) return done(err);
 				done();
 			});
