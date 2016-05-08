@@ -67,7 +67,7 @@ docker images
 
 <h3>Delete containers that are not running:</h3>
 ```
-docker rm 'container-name'
+docker rm $(docker ps -a -q)
 ```
 
 <h3>Delete images</h3>
