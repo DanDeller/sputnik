@@ -16,7 +16,7 @@ cache:
     - node_modules
 
 script:
-  - docker-compose build
+  # - docker-compose build
   # Test if server will start
   # Keep commented out for now
   # - docker-compose up
