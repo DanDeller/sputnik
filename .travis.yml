@@ -16,8 +16,5 @@ cache:
     - node_modules
 
 script:
-  - docker-compose build
-  # Test if server will start
-  # Keep commented out for now
-  # - docker-compose up
   - npm test # this can fail if database/tables do not exist!
+  # - docker-compose build
