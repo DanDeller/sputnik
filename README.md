@@ -31,6 +31,12 @@ dinghy up
 docker-compose build
 ```
 
+<h3>Start webpack and watch for changes</h3>
+```
+cd public
+webpack --watch
+```
+
 <h3>Start gulp (new tab)</h3>
 ```
 cd public
