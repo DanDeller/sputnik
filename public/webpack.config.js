@@ -5,6 +5,7 @@ var config = {
     filename: 'bundle.js',
     path: __dirname + '/dist',
   },
+  watch: true,
   resolve: {
     extensions: ['', '.js', '.coffee'],
   },
