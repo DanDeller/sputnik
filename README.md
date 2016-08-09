@@ -31,21 +31,14 @@ dinghy up
 docker-compose build
 ```
 
-<h3>Start webpack and watch for changes</h3>
+<h3>Build docker image:</h3>
 ```
-cd public
-webpack --watch
+docker-compose up
 ```
 
 <h3>Start gulp (new tab)</h3>
 ```
-cd public
 gulp
-```
-
-<h3>Build docker image:</h3>
-```
-docker-compose up
 ```
 
 <h3>View front end:</h3>
