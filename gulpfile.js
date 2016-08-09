@@ -9,10 +9,10 @@ var ignore = require('gulp-ignore');
 var webpack = require('gulp-webpack');
 
 gulp.task('default', function() {
-  return gulp.src('app/components/**/*.js')
+  return gulp.src('public/app/components/**/*.js')
     .pipe(webpack(require('./webpack.config.js')))
     .pipe(babel())
     .pipe(notify({message: 'Scripts task complete'}))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('public/dist/'));
 });

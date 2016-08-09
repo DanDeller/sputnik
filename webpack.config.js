@@ -1,13 +1,13 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
-const parts = require('./libs/libs');
+const parts = require('./public/libs/libs');
 const TARGET = process.env.npm_lifecycle_event;
 const ENABLE_POLLING = process.env.ENABLE_POLLING;
 const PATHS = {
-  app: path.join(__dirname, 'app/components'),
+  app: path.join(__dirname, 'public/app/components'),
   style: [
-  path.join(__dirname, 'app', 'main.css')
+  path.join(__dirname, 'public/app', 'main.css')
   ],
   build: path.join(__dirname, 'build'),
   test: path.join(__dirname, 'tests')
@@ -16,7 +16,7 @@ const PATHS = {
 process.env.BABEL_ENV = TARGET;
 
 const config = {
-  context: __dirname + '/app/components',
+  context: __dirname + '/public/app/components',
   // entry: {
   //     app: PATHS.app // WHY DOES THIS KEEP FAILING?!?!
   //   },
