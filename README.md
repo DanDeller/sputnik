@@ -31,22 +31,17 @@ dinghy up
 docker-compose build
 ```
 
-<h3>Start webpack and watch for changes</h3>
-```
-cd public
-webpack --watch
-```
-
-<h3>Start gulp (new tab)</h3>
-```
-cd public
-gulp
-```
-
 <h3>Build docker image:</h3>
 ```
 docker-compose up
 ```
+
+<h3>Start gulp (new tab)</h3>
+```
+gulp
+```
+>Quick note: Since we have webpack installed we'll want to use it in conjuction with gulp to watch all the files we'd like to. Once you run `gulp` in your command line, you'll see it read `webpack is watching for changes`.
+
 
 <h3>View front end:</h3>
 [http://mynodeapp.docker:3000/](http://mynodeapp.docker:3000/)
