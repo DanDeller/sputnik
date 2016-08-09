@@ -1,18 +1,22 @@
-var gulp = require('gulp');
-var babel = require('gulp-babel');
-var watch = require('gulp-watch');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var notify = require('gulp-notify');
-var gulpUtil = require('gulp-util');
-var ignore = require('gulp-ignore');
-var webpack = require('gulp-webpack');
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const watch = require('gulp-watch');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const notify = require('gulp-notify');
+const gulpUtil = require('gulp-util');
+const ignore = require('gulp-ignore');
+const webpack = require('gulp-webpack');
 
-gulp.task('default', function() {
-  return gulp.src('public/app/components/**/*.js')
-    .pipe(webpack(require('./webpack.config.js')))
-    .pipe(babel())
-    .pipe(notify({message: 'Scripts task complete'}))
-    .pipe(uglify())
-    .pipe(gulp.dest('public/dist/'));
+function src() {
+	return pathify([ __dirname, 'ui' ], arguments);
+}
+
+gulp.task('default', () => {
+	return gulp.src('public/app/components/**/*.js')
+	.pipe(webpack(require('./webpack.config.js')))
+	.pipe(babel())
+	.pipe(notify({message: 'Scripts task complete'}))
+	.pipe(uglify())
+	.pipe(gulp.dest('public/dist/'));
 });

@@ -4,6 +4,7 @@ const validate = require('webpack-validator');
 const parts = require('./public/libs/libs');
 const TARGET = process.env.npm_lifecycle_event;
 const ENABLE_POLLING = process.env.ENABLE_POLLING;
+
 const PATHS = {
   app: path.join(__dirname, 'public/app/components'),
   style: [
@@ -26,7 +27,7 @@ const config = {
   },
   watch: true,
   resolve: {
-    extensions: ['', '.js', '.coffee'],
+    extensions: ['', '.jsx', '.js', '.coffee'],
   },
   module: {
     loaders: [
@@ -37,8 +38,20 @@ const config = {
       query: {
         presets: ['react', 'es2015', 'stage-0']
       }
+    },
+    {
+      test: /\.less$/,
+      loader: "style!css!less",
+    }, {
+      test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'base64-font-loader',
+    },
+    {
+      test: /\.(png|jpg)$/,
+      loader: 'url-loader'
     }
     ],
   }
 };
+
 module.exports = config;
