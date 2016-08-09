@@ -6,10 +6,11 @@ var uglify = require('gulp-uglify');
 var notify = require('gulp-notify');
 var gulpUtil = require('gulp-util');
 var ignore = require('gulp-ignore');
+var webpack = require('gulp-webpack');
 
 gulp.task('scripts', function() {
   return gulp.src([
-      'src/js/**/*.js'
+      'app/components/**/*.js'
     ])
     .pipe(concat('main.js'))
     .pipe(babel())
@@ -20,10 +21,12 @@ gulp.task('scripts', function() {
 
 gulp.task('watch', function() {
   gulp.watch([
-    'src/js/**/*.js'
+    'app/components/**/*.js'
     ],['scripts']);
 });
 
-gulp.task('default', ['scripts', 'watch'], function () {
-  // gulp do stuff...
+gulp.task('default', function() {
+  return gulp.src('app/components/**/*.js')
+    .pipe(webpack(require('./webpack.config.js')))
+    .pipe(gulp.dest('dist/'));
 });
