@@ -1,0 +1,19 @@
+2016-08-09T09:43:22.902243000 0.354154s notice: Recursively removing directory /Users/dandeller/Desktop/sputnik/rethinkdb_data/tmp
+2016-08-09T09:43:22.903475000 0.355390s notice: Initializing directory /Users/dandeller/Desktop/sputnik/rethinkdb_data
+2016-08-09T09:43:22.903565000 0.355475s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/dandeller/Desktop/sputnik/rethinkdb_data' did not already exist or is empty.)
+2016-08-09T09:43:22.903598000 0.355508s notice: Running rethinkdb 2.2.3-1 (CLANG 7.0.2 (clang-700.1.81))...
+2016-08-09T09:43:22.916057000 0.367969s notice: Running on Darwin 15.4.0 x86_64
+2016-08-09T09:43:22.916119000 0.368030s notice: Loading data from directory /Users/dandeller/Desktop/sputnik/rethinkdb_data
+2016-08-09T09:43:23.075675000 0.527585s info: Automatically using cache size of 306 MB
+2016-08-09T09:43:23.078148000 0.530059s notice: Listening for intracluster connections on port 29015
+2016-08-09T09:43:23.082848000 0.534759s notice: Listening for client driver connections on port 28015
+2016-08-09T09:43:23.082980000 0.534890s notice: Listening for administrative HTTP connections on port 8080
+2016-08-09T09:43:23.082985000 0.534896s notice: Listening on addresses: 127.0.0.1, ::1
+2016-08-09T09:43:23.082986000 0.534896s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-08-09T09:43:23.082988000 0.534899s notice: Server ready, "Dan_Deller_MacBook_Pro_local_2wz" 27f57736-f730-4637-8def-e2cd3b246e92
+2016-08-09T09:43:24.375917000 1.827828s notice: A newer version of the RethinkDB server is available: 2.3.4. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2016-08-09T10:10:29.354337000 1626.741874s notice: Server got SIGINT from pid 23878, uid 502; shutting down...
+2016-08-09T10:10:29.354713000 1626.742250s notice: Shutting down client connections...
+2016-08-09T10:10:29.355026000 1626.742563s notice: All client connections closed.
+2016-08-09T10:10:29.355031000 1626.742567s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-08-09T10:10:29.357796000 1626.745332s notice: Storage engine shut down.

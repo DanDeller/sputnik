@@ -53,6 +53,7 @@
     "gulp-uglify": "^1.5.1",
     "gulp-watch": "^4.3.5",
     "ignore": "^3.0.12",
+    "json-loader": "^0.5.4",
     "mocha": "2.4.5",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",

@@ -8,12 +8,11 @@ const gulpUtil = require('gulp-util');
 const ignore = require('gulp-ignore');
 const webpack = require('gulp-webpack');
 
-function src() {
-	return pathify([ __dirname, 'ui' ], arguments);
-}
-
 gulp.task('default', () => {
-	return gulp.src('public/app/components/**/*.js')
+	return gulp.src([
+		'public/app/components/**/*.js',
+		'server/lib/**/*.js'
+		])
 	.pipe(webpack(require('./webpack.config.js')))
 	.pipe(babel())
 	.pipe(notify({message: 'Scripts task complete'}))

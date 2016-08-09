@@ -29,6 +29,12 @@ const config = {
   resolve: {
     extensions: ['', '.jsx', '.js', '.coffee'],
   },
+  node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
   module: {
     loaders: [
     {
@@ -39,10 +45,14 @@ const config = {
         presets: ['react', 'es2015', 'stage-0']
       }
     },
+    { 
+      test: /\.json$/, loader: 'json-loader'
+    },
     {
       test: /\.less$/,
       loader: "style!css!less",
-    }, {
+    }, 
+    {
       test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'base64-font-loader',
     },
