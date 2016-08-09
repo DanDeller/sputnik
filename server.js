@@ -7,6 +7,11 @@ var _ = require('lodash');
 var endpoints = requireDir('./server/lib/endpoints');
 var config = require('./config');
 
+var webpack =  require('webpack');
+var webpackDevMiddleware =  require('webpack-dev-middleware');
+var webpackHotMiddleware =  require('webpack-hot-middleware');
+var webpackConfig =  require('./webpack.config');
+
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/index.html'));
 });
@@ -18,6 +23,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 _.each(endpoints,function(name) {
   app.use(name);
 });
+
+/**
+ * Bundle and Serve Webpack
+ */
+const compiler = webpack(webpackConfig);
+const middleware = webpackDevMiddleware(compiler, {
+  noInfo: true,
+  publicPath: webpackConfig.output.publicPath
+});
+
+app.use(middleware);
+app.use(webpackHotMiddleware(compiler));
 
 var server = app.listen( config.server.port, function() {
   var port = config.server.port;

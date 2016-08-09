@@ -2,11 +2,12 @@
   "name": "sputnik",
   "version": "1.0.0",
   "description": "docker test",
-  "main": "server.js",
+  "main": "node server.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test",
     "start": "nodemon server.js"
   },
+  "start": "webpack —progress",
   "author": "dan d",
   "license": "ISC",
   "dependencies": {
@@ -34,6 +35,7 @@
     "react-router": "^2.4.1",
     "require-dir": "^0.3.0",
     "rethinkdb": "^2.2.1",
+    "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1",
     "webpack-validator": "^2.2.7"
   },
