@@ -23,21 +23,21 @@ const common = merge(
     // We'll be using the latter form given it's
     // convenient with more complex configurations.
     entry: {
-      app: './public/app/index.jsx'
+      app: PATHS.app
     },
     output: {
       path: PATHS.build,
       filename: '[name].js'
     },
     resolve: {
-      extensions: ['', '.js', '.jsx', 'es6.js']
+      extensions: ['', '.js', '.jsx']
     }
   },
   parts.indexTemplate({
     title: 'Kanban demo',
     appMountId: 'app'
   }),
-  parts.loadJSX('./public/app/index.jsx'),
+  parts.loadJSX('./public/app/'),
   parts.lintJSX('./eslintrc')
 );
 
@@ -85,8 +85,8 @@ switch(TARGET) {
       {
         devtool: 'inline-source-map'
       },
-      // parts.loadIsparta(PATHS.app),
-      // parts.loadJSX(PATHS.test)
+      parts.loadIsparta(PATHS.app),
+      parts.loadJSX(PATHS.test)
     );
     break;
   default:
