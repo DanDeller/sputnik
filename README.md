@@ -42,7 +42,7 @@ gulp
 ```
 >Quick note: Since we have webpack installed we'll want to use it in conjuction with gulp to watch all the files we'd like to. Once you run `gulp` in your command line, you'll see it read `webpack is watching for changes`.
 
-<h3>Run test</h3>
+<h3>Run tests</h3>
 ```
 mocha test
 ```
