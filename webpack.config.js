@@ -38,7 +38,7 @@ const common = merge(
     appMountId: 'app'
   }),
   parts.loadJSX(PATHS.app),
-  parts.lintJSX(PATHS.app)
+  parts.lintJSX('./eslintrc')
 );
 
 var config;
