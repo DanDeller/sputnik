@@ -5,9 +5,9 @@
   "main": "node server.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test",
-    "start": "nodemon server.js"
+    "start": "nodemon server.babel.js",
+    "build": "webpack --progress"
   },
-  "start": "webpack —progress",
   "author": "dan d",
   "license": "ISC",
   "dependencies": {
