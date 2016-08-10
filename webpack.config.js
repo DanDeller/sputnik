@@ -19,25 +19,37 @@ process.env.BABEL_ENV = TARGET;
 
 const common = merge(
   {
-    // Entry accepts a path or an object of entries.
-    // We'll be using the latter form given it's
-    // convenient with more complex configurations.
+    context: __dirname + '/public/app',
     entry: {
-      app: PATHS.app
+        html: "./public/app/index.jsx"
     },
     output: {
-      path: PATHS.build,
-      filename: '[name].js'
+        filename: 'public/app/app.js',
+        path: __dirname + '/dist'
     },
-    resolve: {
-      extensions: ['', '.js', '.jsx']
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loaders: ['react-hot', 'babel-loader?presets[]=react,presets[]=es2015'],
+                //loaders: ["react-hot", 'babel-loader'],
+                //query: {
+                //    presets : ['es2015', 'react']
+                //}
+            },
+            {
+                test: /\.html$/,
+                loader: "file?name=[name].[ext]"
+            }
+        ]
     }
   },
   parts.indexTemplate({
     title: 'Kanban demo',
     appMountId: 'app'
   }),
-  parts.loadJSX(PATHS.app),
+  parts.loadJSX('./public/index.jsx'),
   parts.lintJSX('./eslintrc')
 );
 
