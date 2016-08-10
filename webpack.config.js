@@ -19,37 +19,25 @@ process.env.BABEL_ENV = TARGET;
 
 const common = merge(
   {
-    context: __dirname + '/public/app',
+    // Entry accepts a path or an object of entries.
+    // We'll be using the latter form given it's
+    // convenient with more complex configurations.
     entry: {
-        html: "./public/app/index.jsx"
+      app: './public/app/index.jsx'
     },
     output: {
-        filename: 'public/app/app.js',
-        path: __dirname + '/dist'
+      path: PATHS.build,
+      filename: '[name].js'
     },
-    module: {
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loaders: ['react-hot', 'babel-loader?presets[]=react,presets[]=es2015'],
-                //loaders: ["react-hot", 'babel-loader'],
-                //query: {
-                //    presets : ['es2015', 'react']
-                //}
-            },
-            {
-                test: /\.html$/,
-                loader: "file?name=[name].[ext]"
-            }
-        ]
+    resolve: {
+      extensions: ['', '.js', '.jsx', 'es6.js']
     }
   },
   parts.indexTemplate({
     title: 'Kanban demo',
     appMountId: 'app'
   }),
-  parts.loadJSX('./public/index.jsx'),
+  parts.loadJSX('./public/app/index.jsx'),
   parts.lintJSX('./eslintrc')
 );
 
@@ -97,8 +85,8 @@ switch(TARGET) {
       {
         devtool: 'inline-source-map'
       },
-      parts.loadIsparta(PATHS.app),
-      parts.loadJSX(PATHS.test)
+      // parts.loadIsparta(PATHS.app),
+      // parts.loadJSX(PATHS.test)
     );
     break;
   default:
