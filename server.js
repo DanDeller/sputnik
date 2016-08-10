@@ -13,7 +13,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from './webpack.config';
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/index.html'));
+  res.sendFile(path.join(__dirname + '/public/app/index.jsx'));
 });
 
 app.use(express.static(path.join(__dirname, './public')))

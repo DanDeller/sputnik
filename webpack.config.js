@@ -1,14 +1,15 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
-const parts = require('./public/libs/libs');
+
+const parts = require('./public/libs/parts');
+
 const TARGET = process.env.npm_lifecycle_event;
 const ENABLE_POLLING = process.env.ENABLE_POLLING;
-
 const PATHS = {
-  app: path.join(__dirname, 'public/app/components'),
+  app: path.join(__dirname, 'public/app'),
   style: [
-  path.join(__dirname, 'public/app', 'main.css')
+    path.join(__dirname, 'public/app', 'main.css')
   ],
   build: path.join(__dirname, 'build'),
   test: path.join(__dirname, 'tests')
@@ -16,60 +17,99 @@ const PATHS = {
 
 process.env.BABEL_ENV = TARGET;
 
-const config = {
-  context: __dirname + '/public/app/components',
-  // entry: {
-  //     app: PATHS.app // WHY DOES THIS KEEP FAILING?!?!
-  //   },
-  output: {
-    path: PATHS.build,
-    filename: '[name].js'
-  },
-  watch: true,
-  resolve: {
-    extensions: ['', '.jsx', '.js', '.coffee'],
-  },
-  node: {
-    console: true,
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty'
-  },
-  module: {
-    loaders: [
-    {
-      test: /\.jsx?$/,
-      loader: 'babel',
-      exclude: /node_modules/,
-      query: {
-        presets: ['react', 'es2015', 'stage-0']
-      }
+const common = merge(
+  {
+    // Entry accepts a path or an object of entries.
+    // We'll be using the latter form given it's
+    // convenient with more complex configurations.
+    entry: {
+      app: PATHS.app
     },
-    {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['react', 'es2015', 'stage-0']
-      }
+    output: {
+      path: PATHS.build,
+      filename: '[name].js'
     },
-    { 
-      test: /\.json$/, loader: 'json-loader'
-    },
-    {
-      test: /\.less$/,
-      loader: "style!css!less",
-    }, 
-    {
-      test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: 'base64-font-loader',
-    },
-    {
-      test: /\.(png|jpg)$/,
-      loader: 'url-loader'
+    resolve: {
+      extensions: ['', '.js', '.jsx']
     }
-    ],
-  }
-};
+  },
+  parts.indexTemplate({
+    title: 'Kanban demo',
+    appMountId: 'app'
+  }),
+  parts.loadJSX(PATHS.app),
+  parts.lintJSX(PATHS.app)
+);
 
-module.exports = config;
+var config;
+
+// Detect how npm is run and branch based on that
+switch(TARGET) {
+  case 'build':
+  case 'stats':
+    config = merge(
+      common,
+      {
+        devtool: 'source-map',
+        entry: {
+          style: PATHS.style
+        },
+        output: {
+          // TODO: Set publicPath to match your GitHub project name
+          // E.g., '/kanban-demo/'. Webpack will alter asset paths
+          // based on this. You can even use an absolute path here
+          // or even point to a CDN.
+          //publicPath: ''
+          path: PATHS.build,
+          filename: '[name].[chunkhash].js',
+          chunkFilename: '[chunkhash].js'
+        }
+      },
+      parts.clean(PATHS.build),
+      parts.setFreeVariable(
+        'process.env.NODE_ENV',
+        'production'
+      ),
+      parts.extractBundle({
+        name: 'vendor',
+        entries: ['react', 'react-dom']
+      }),
+      parts.minify(),
+      parts.extractCSS(PATHS.style)
+    );
+    break;
+  case 'test':
+  case 'test:tdd':
+    config = merge(
+      common,
+      {
+        devtool: 'inline-source-map'
+      },
+      parts.loadIsparta(PATHS.app),
+      parts.loadJSX(PATHS.test)
+    );
+    break;
+  default:
+    config = merge(
+      common,
+      {
+        devtool: 'eval-source-map',
+        entry: {
+          style: PATHS.style
+        }
+      },
+      parts.setupCSS(PATHS.style),
+      parts.devServer({
+        // Customize host/port here if needed
+        host: process.env.HOST,
+        port: process.env.PORT,
+        poll: ENABLE_POLLING
+      }),
+      parts.enableReactPerformanceTools(),
+      parts.npmInstall()
+    );
+}
+
+module.exports = validate(config, {
+  quiet: true
+});
