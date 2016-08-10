@@ -7,10 +7,10 @@ var _ = require('lodash');
 var endpoints = requireDir('./server/lib/endpoints');
 var config = require('./config');
 
-var webpack =  require('webpack');
-var webpackDevMiddleware =  require('webpack-dev-middleware');
-var webpackHotMiddleware =  require('webpack-hot-middleware');
-var webpackConfig =  require('./webpack.config');
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackConfig from './webpack.config';
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/index.html'));
