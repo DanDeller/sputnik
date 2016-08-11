@@ -13,10 +13,10 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from './webpack.config';
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/app/index.jsx'));
+  res.sendFile(path.join(__dirname + '/public/app/index.html'));
 });
 
-app.use(express.static(path.join(__dirname, './public')))
+app.use(express.static(path.join(__dirname, './public/app')))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
