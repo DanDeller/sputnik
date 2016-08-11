@@ -17,3 +17,14 @@
 2016-08-09T10:10:29.355026000 1626.742563s notice: All client connections closed.
 2016-08-09T10:10:29.355031000 1626.742567s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
 2016-08-09T10:10:29.357796000 1626.745332s notice: Storage engine shut down.
+2016-08-11T15:15:49.780990000 0.333200s notice: Running rethinkdb 2.2.3-1 (CLANG 7.0.2 (clang-700.1.81))...
+2016-08-11T15:15:49.786259000 0.338466s notice: Running on Darwin 15.4.0 x86_64
+2016-08-11T15:15:49.786307000 0.338512s notice: Loading data from directory /Users/dandeller/Desktop/sputnik/rethinkdb_data
+2016-08-11T15:15:49.821940000 0.374146s info: Automatically using cache size of 2139 MB
+2016-08-11T15:15:49.824304000 0.376510s notice: Listening for intracluster connections on port 29015
+2016-08-11T15:15:49.829139000 0.381345s notice: Listening for client driver connections on port 28015
+2016-08-11T15:15:49.829285000 0.381491s notice: Listening for administrative HTTP connections on port 8080
+2016-08-11T15:15:49.829290000 0.381496s notice: Listening on addresses: 127.0.0.1, ::1
+2016-08-11T15:15:49.829291000 0.381497s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-08-11T15:15:49.829293000 0.381499s notice: Server ready, "Dan_Deller_MacBook_Pro_local_2wz" 27f57736-f730-4637-8def-e2cd3b246e92
+2016-08-11T15:15:51.621920000 2.174056s notice: A newer version of the RethinkDB server is available: 2.3.4. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
