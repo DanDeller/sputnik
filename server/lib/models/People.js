@@ -1,6 +1,6 @@
-var r = require('rethinkdb');
-var config = require('../../../serverConfig');
-var _ = require('lodash');
+const r = require('rethinkdb');
+const config = require('../../../serverConfig');
+const _ = require('lodash');
 
 module.exports = {
 	connect: function(callback) {
