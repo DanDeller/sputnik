@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var People = require('../models/People');
+const express = require('express');
+const router = express.Router();
+const People = require('../models/People');
 
 router.get('/people', function(req, res) {
 	People.list(function(error, response) {
