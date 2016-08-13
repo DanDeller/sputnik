@@ -16,7 +16,7 @@ module.exports = {
 			return callback(err);
 		});
 	},
-	list: function(callback) {
+	list: function (callback) {
 		this.connect((err, connection) => {
 			if (err) return callback(err);
 			r.db(config.db.name).table(config.db.tables.people)
@@ -32,7 +32,7 @@ module.exports = {
 				});
 		});
 	},
-	post: (request, callback) => {
+	post: function(request, callback) {
 		var currentPerson = request.body;
 		this.connect((err, connection) => {
 			// console.log(request) // logs request
@@ -53,8 +53,8 @@ module.exports = {
 				});
 		});
 	},
-	patch: (request, callback) => {
-		this.connect((err, connection) => {
+	patch: function(request, callback) {
+		this.connect(function(err, connection) {
 			var query = _.extend(request.body,request.params,request.query);
   			var id = query.id;
 			if (err) return callback(err);
@@ -73,7 +73,7 @@ module.exports = {
 			});
 		});
 	},
-	delete: (request, callback) => {
+	delete: function(request, callback) {
 		this.connect((err, connection) => {
 			var currentId = request.query;
 			if (err) return callback(err)
