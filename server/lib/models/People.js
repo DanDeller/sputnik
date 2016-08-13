@@ -3,54 +3,58 @@ const config = require('../../../serverConfig');
 const _ = require('lodash');
 
 module.exports = {
-	connect: function(callback) {
+	connect: (callback) => {
 		r.connect({
 			host: config.db.host,
 			port: config.db.port,
 			db: config.db.name
 		})
-		.then(function(connection) {
+		.then((connection) => {
 			return callback(null, connection);
 		})
-		.error(function(err) {
+		.error((err) => {
 			return callback(err);
 		});
 	},
 	list: function(callback) {
-		this.connect(function(err, connection) {
+		this.connect((err, connection) => {
 			if (err) return callback(err);
 			r.db(config.db.name).table(config.db.tables.people)
 			.run(connection)
-				.then(function(cursor) {
+				.then((cursor) => {
 					return cursor.toArray();
 				})
-				.then(function(users) {
+				.then((users) => {
 					return callback(null, users);
 				})
-				.error(function(err) {
+				.error((err) => {
 					return callback(err);
 				});
 		});
 	},
-	post: function(request, callback) {
+	post: (request, callback) => {
 		var currentPerson = request.body;
-		this.connect(function(err, connection) {
+		this.connect((err, connection) => {
+			// console.log(request) // logs request
+			console.log(request.body) // errors on logging request.body
 			if (err) return callback(err);
 			r.db(config.db.name).table(config.db.tables.people)
+				// console.log(config.db.name + ' + ' + config.db.tables.people) // logs db name and right table
 				.insert({
-					name: currentPerson.name
+					name: currentPerson.name // this doesn't work
+					// name: 'where is the body??' // but this does
 				})
 				.run(connection)
-				.then(function(response) {
+				.then((response) => {
 					 return callback(null, response);
 				})
-				.error(function(error) {
+				.error((error) => {
 					 return callback(error);
 				});
 		});
 	},
-	patch: function(request, callback) {
-		this.connect(function(err, connection) {
+	patch: (request, callback) => {
+		this.connect((err, connection) => {
 			var query = _.extend(request.body,request.params,request.query);
   			var id = query.id;
 			if (err) return callback(err);
@@ -58,30 +62,29 @@ module.exports = {
 			.get(id)
 			.update(query)
 			.run(connection)
-			.then(function(cursor) {
+			.then((cursor) => {
 				return cursor.toArray();
 			})
-			.then(function(response) {
+			.then((response) => {
 				return callback(null, response);
 			})
-			.error(function(error) {
+			.error((error) => {
 				return callback(error);
 			});
 		});
 	},
-	delete: function(request, callback) {
-		this.connect(function(err, connection) {
+	delete: (request, callback) => {
+		this.connect((err, connection) => {
 			var currentId = request.query;
-			console.log(currentId)
 			if (err) return callback(err)
 			r.db(config.db.name).table(config.db.tables.people)
 			.get(currentId.id)
 			.delete()
 			.run(connection)
-			.then(function(response) {
+			.then((response) => {
 				return callback(null, response);
 			})
-			.error(function(error) {
+			.error((error) => {
 				return callback(error);
 			});
 		});
