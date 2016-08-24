@@ -2,9 +2,8 @@ const path = require('path');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
 const parts = require('./public/libs/parts');
-
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [

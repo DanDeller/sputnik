@@ -55,7 +55,7 @@
     "react-dom": "^0.14.8",
     "react-router": "^2.4.1",
     "require-dir": "^0.3.0",
-    "rethinkdb": "^2.2.1",
+    "rethinkdb": "^2.2.3",
     "style-loader": "^0.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.2",

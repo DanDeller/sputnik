@@ -4,6 +4,7 @@ const _ = require('lodash');
 
 module.exports = {
 	connect: (callback) => {
+		console.log(config.db.host + config.db.port + config.db.name)
 		r.connect({
 			host: config.db.host,
 			port: config.db.port,
@@ -21,42 +22,38 @@ module.exports = {
 			if (err) return callback(err);
 			r.db(config.db.name).table(config.db.tables.people)
 			.run(connection)
-				.then((cursor) => {
-					return cursor.toArray();
-				})
-				.then((users) => {
-					return callback(null, users);
-				})
-				.error((err) => {
-					return callback(err);
-				});
+			.then((cursor) => {
+				return cursor.toArray();
+			})
+			.then((users) => {
+				return callback(null, users);
+			})
+			.error((err) => {
+				return callback(err);
+			});
 		});
 	},
 	post: function(request, callback) {
 		var currentPerson = request.body;
 		this.connect((err, connection) => {
-			// console.log(request) // logs request
-			console.log(request.body) // errors on logging request.body
 			if (err) return callback(err);
 			r.db(config.db.name).table(config.db.tables.people)
-				// console.log(config.db.name + ' + ' + config.db.tables.people) // logs db name and right table
-				.insert({
-					name: currentPerson.name // this doesn't work
-					// name: 'where is the body??' // but this does
-				})
-				.run(connection)
-				.then((response) => {
-					 return callback(null, response);
-				})
-				.error((error) => {
-					 return callback(error);
-				});
+			.insert({
+				name: currentPerson.name
+			})
+			.run(connection)
+			.then((response) => {
+				return callback(null, response);
+			})
+			.error((error) => {
+				return callback(error);
+			});
 		});
 	},
 	patch: function(request, callback) {
 		this.connect(function(err, connection) {
 			var query = _.extend(request.body,request.params,request.query);
-  			var id = query.id;
+			var id = query.id;
 			if (err) return callback(err);
 			r.db(config.db.name).table(config.db.tables.people)
 			.get(id)
@@ -77,7 +74,7 @@ module.exports = {
 		this.connect((err, connection) => {
 			var currentId = request.query;
 			if (err) return callback(err)
-			r.db(config.db.name).table(config.db.tables.people)
+				r.db(config.db.name).table(config.db.tables.people)
 			.get(currentId.id)
 			.delete()
 			.run(connection)
