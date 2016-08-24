@@ -8,6 +8,8 @@ chai.use(chaiHttp);
 describe('api', function() {
 	describe('endPoints', function() {
 
+		this.timeout(15000); // for asynchronous stuff add a timeout else GET will fail
+
 		// GET request - should return 200 status code
 		it('should return 200 on GET', function(done) {
 			chai.request(app)

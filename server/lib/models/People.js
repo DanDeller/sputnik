@@ -4,7 +4,6 @@ const _ = require('lodash');
 
 module.exports = {
 	connect: (callback) => {
-		console.log(config.db.host + config.db.port + config.db.name)
 		r.connect({
 			host: config.db.host,
 			port: config.db.port,

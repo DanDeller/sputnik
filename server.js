@@ -51,3 +51,5 @@ app.listen(serverConfig.server.port, (err) => {
   }
   console.info('==> 🌎 Listening on port %s. Open up http://0.0.0.0:%s/ in your browser.', port, port);
 });
+
+module.exports = app;
