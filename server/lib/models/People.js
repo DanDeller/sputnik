@@ -33,7 +33,7 @@ module.exports = {
 		});
 	},
 	post: function(request, callback) {
-		var currentPerson = request.body;
+		const currentPerson = request.body;
 		this.connect((err, connection) => {
 			if (err) return callback(err);
 			r.db(config.db.name).table(config.db.tables.people)
@@ -51,8 +51,8 @@ module.exports = {
 	},
 	patch: function(request, callback) {
 		this.connect((err, connection) => {
-			var query = _.extend(request.body,request.params,request.query);
-			var id = query.id;
+			const query = _.extend(request.body,request.params,request.query);
+			const id = query.id;
 			if (err) return callback(err);
 			r.db(config.db.name).table(config.db.tables.people)
 			.get(id)
@@ -71,7 +71,7 @@ module.exports = {
 	},
 	delete: function(request, callback) {
 		this.connect((err, connection) => {
-			var currentId = request.query;
+			const currentId = request.query;
 			if (err) return callback(err)
 				r.db(config.db.name).table(config.db.tables.people)
 			.get(currentId.id)
