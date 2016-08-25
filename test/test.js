@@ -5,16 +5,16 @@ const app = require('../server.js');
 
 chai.use(chaiHttp);
 
-describe('api', function() {
+describe('api', () => {
 	describe('endPoints', function() {
-
-		this.timeout(15000); // for asynchronous stuff add a timeout else GET will fail
+		const that = this;
+		that.timeout(15000); // for asynchronous stuff add a timeout else GET will fail
 
 		// GET request - should return 200 status code
-		it('should return 200 on GET', function(done) {
+		it('should return 200 on GET', (done) => {
 			chai.request(app)
 			.get('/people')
-			.end(function(err, res) {
+			.end((err, res) => {
 				res.should.have.status(200);
 				res.body.should.be.a('object');
 				if (err) return done(err);
@@ -23,10 +23,10 @@ describe('api', function() {
 		});
 
 		// POST request - should return 200 status code
-		it('should return 200 on POST', function(done) {
+		it('should return 200 on POST', (done) => {
 			chai.request(app)
 			.post('/people')
-			.end(function(err, res) {
+			.end((err, res) => {
 				res.should.have.status(200);
 				res.body.should.be.a('object');
 				if (err) return done(err);
@@ -35,10 +35,10 @@ describe('api', function() {
 		});
 
 		// DELETE request - should return 200 status code
-		it('should return 200 on DELETE', function(done) {
+		it('should return 200 on DELETE', (done) => {
 			chai.request(app)
 			.delete('/people')
-			.end(function(err, res) {
+			.end((err, res) => {
 				res.should.have.status(200);
 				if (err) return done(err);
 				done();

@@ -50,7 +50,7 @@ module.exports = {
 		});
 	},
 	patch: function(request, callback) {
-		this.connect(function(err, connection) {
+		this.connect((err, connection) => {
 			var query = _.extend(request.body,request.params,request.query);
 			var id = query.id;
 			if (err) return callback(err);
