@@ -11,7 +11,7 @@ module.exports = {
   path.join(__dirname, 'public/app/index.jsx')
   ],
   output: {
-    path: path.join(__dirname, '/dist/'),
+    path: path.join(__dirname, '/public/app/'),
     filename: '[name].js'
   },
   plugins: [
@@ -27,10 +27,16 @@ module.exports = {
     'process.env.NODE_ENV': JSON.stringify('development')
   })
   ],
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
+        include: [
+          path.resolve(__dirname, "public/app")
+        ],
         exclude: /node_modules/,
         loader: 'babel',
         query: {
