@@ -1,17 +1,12 @@
 import React from 'react';
-import styles from './App.css';
+import ReactDOM from 'react-dom';
+import Notes from './components/Notes';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {test: 'foo young'};
-    console.log(this.state);
-  }
-  render() {
-    return (
-      <div className={styles.app}>
-        bar and sutff
-      </div>
-    );
-  }
+if (process.env.NODE_ENV !== 'production') {
+  React.Perf = require('react-addons-perf');
 }
+
+ReactDOM.render(
+  <Notes />,
+  document.getElementById('app')
+);

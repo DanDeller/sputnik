@@ -32,12 +32,12 @@ if (isDeveloping) {
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
   app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/dist/index.html'));
+    res.sendFile(path.join(__dirname + '/public/app/index.tpl.html'));
     res.end();
   });
 } else {
   app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
+    res.sendFile(path.join(__dirname, '/public/app/index.tpl.html'));
   });
 }
 
