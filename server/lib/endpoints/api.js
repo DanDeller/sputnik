@@ -11,7 +11,6 @@ router.get('/people', (req, res) => {
 
 router.post('/people', (req, res) => {
 	People.post(req, (error, response) => {
-		console.log(req + ' - part of api.js')
 		if (error) return res.end();
 		res.send(response);
 	});

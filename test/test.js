@@ -1,14 +1,39 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const should = chai.should();
+const assert = require('assert');
 const app = require('../server.js');
+
+import React from 'react';
+import { mount, shallow } from 'enzyme';
+import {expect} from 'chai';
+import Note from '../public/app/components/Note';
 
 chai.use(chaiHttp);
 
 describe('api', () => {
+
+	// create function to supply mock data
+	function mockItem(overrides) {
+	  // … create mock ToDo Item
+	}
+
+	// tests for react components
+	describe('<Note/>', () => {
+		it('should have a base list', () => {
+			const task = mockItem({complete: true});
+
+			const wrapper = shallow(
+				<Note 
+    				task={task}
+    			/>);
+			expect(wrapper.find(Note));
+		});
+	});
+
+	// tests for endoints
 	describe('endPoints', function() {
-		const that = this;
-		that.timeout(15000); // for asynchronous stuff add a timeout else GET will fail
+		this.timeout(15000); // for asynchronous stuff add a timeout else GET will fail
 
 		// GET request - should return 200 status code
 		it('should return 200 on GET', (done) => {

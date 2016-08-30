@@ -38,6 +38,9 @@ module.exports = {
           path.resolve(__dirname, "public/app")
         ],
         exclude: /node_modules/,
+        loaders: [
+          'react-hot'
+        ],
         loader: 'babel',
         query: {
           "presets": ["react", "es2015", "stage-0", "react-hmre"]
