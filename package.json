@@ -4,7 +4,7 @@
   "description": "docker test",
   "main": "node server.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha -w test/browser.js test/*.spec.js",
+    "test": "./node_modules/mocha/bin/mocha -w test/browser.js test/*",
     "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
     "start": "nodemon server.babel.js",
     "build": "webpack --progress"
