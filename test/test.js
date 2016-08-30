@@ -16,17 +16,16 @@ describe('api', () => {
 	// create function to supply mock data
 	function mockItem(overrides) {
 	  // … create mock ToDo Item
-	}
+	 }
 
 	// tests for react components
 	describe('<Note/>', () => {
 		it('should have a base list', () => {
 			const task = mockItem({complete: true});
-
 			const wrapper = shallow(
 				<Note 
-    				task={task}
-    			/>);
+				task={task}
+				/>);
 			expect(wrapper.find(Note));
 		});
 	});
