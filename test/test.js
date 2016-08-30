@@ -32,7 +32,8 @@ describe('api', () => {
 
 	// tests for endoints
 	describe('endPoints', function() {
-		this.timeout(15000); // for asynchronous stuff add a timeout else GET will fail
+		// for asynchronous stuff add a timeout else GET will fail
+		this.timeout(15000);
 
 		// GET request - should return 200 status code
 		it('should return 200 on GET', (done) => {
