@@ -43,7 +43,7 @@ module.exports = {
         ],
         loader: 'babel',
         query: {
-          "presets": ["react", "es2015", "stage-0", "react-hmre"]
+          "presets": ["es2015", "react", "react-hmre", "stage-0"]
         }
       }, 
       {
