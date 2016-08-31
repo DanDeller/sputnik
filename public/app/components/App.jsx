@@ -38,8 +38,8 @@ export default class App extends React.Component {
 
 		return (
 			<div>
-			<button onClick = {this.addNote}> + </button>
-			<Notes notes={notes} onDelete={this.deleteNote} />
+				<button onClick = {this.addNote}> + </button>
+				<Notes notes={notes} onDelete={this.deleteNote} />
 			</div>
 		);
 	}

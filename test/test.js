@@ -5,31 +5,38 @@ import app from '../server.js';
 import React from 'react';
 import {mount, shallow} from 'enzyme';
 import {expect} from 'chai';
+
 import Note from '../public/app/components/Note';
+import Notes from '../public/app/components/Notes';
+
+// used to call mount() before global document is loaded
+const jsdom = require('jsdom');
+const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
+const win = doc.defaultView;
+global.document = doc;
+global.window = win;
 
 const should = chai.should();
 chai.use(chaiHttp);
 
-describe('api', () => {
+describe('API', () => {
 
-	// create function to supply mock data
-	function mockItem(overrides) {
-	  // … create mock ToDo Item
-	 }
-
-	// tests for react components
-	describe('<Note/>', () => {
-		it('should have a base list', () => {
-			const task = mockItem({complete: true});
-			const wrapper = shallow(
-				<Note 
-				task={task}
-				/>);
-			expect(wrapper.find(Note));
+	// TESTS FOR REACT COMPONENTS
+	describe('Each note:', () => {
+		it("should have the class 'singleNote'", function() {
+			expect(shallow(<Note />).is('.singleNote')).to.equal(true);
 		});
 	});
 
-	// tests for endoints
+	describe('<Notes />', () => {
+		it('should have the Note component', () => {
+			const wrapper = mount(<Note></Note>);
+			expect(wrapper.contains(<Note></Note>)).to.equal(true);
+		});
+	});
+
+
+	// TESTS FOR ENDPOINTS
 	describe('endPoints', function() {
 		// for asynchronous stuff add a timeout else GET will fail
 		this.timeout(15000);
