@@ -1,14 +1,13 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-const should = chai.should();
-const assert = require('assert');
-const app = require('../server.js');
-
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import assert from 'assert';
+import app from '../server.js';
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import {mount, shallow} from 'enzyme';
 import {expect} from 'chai';
 import Note from '../public/app/components/Note';
 
+const should = chai.should();
 chai.use(chaiHttp);
 
 describe('api', () => {
