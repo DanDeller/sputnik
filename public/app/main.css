@@ -9,8 +9,7 @@ body {
   border: 1px solid blue;
 }
 
-.bap {
-  background-color: red;
-  height: 25px;
+.add-note {
+	background-color: #fdfdfd;
+	border: 1px solid #ccc;
 }
-

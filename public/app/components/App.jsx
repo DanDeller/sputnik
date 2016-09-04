@@ -22,7 +22,7 @@ export default class App extends React.Component {
 		const {notes} = this.state;
 		return (
 			<div>
-				<button onClick = {this.addNote}> + </button>
+				<button onClick = {this.addNote} className = 'add-note'> + </button>
 				<Notes
 					notes={notes}
 					onNoteClick={this.activateNoteEdit}

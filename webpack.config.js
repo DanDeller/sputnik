@@ -8,7 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: [
   'webpack-hot-middleware/client?reload=true',
-  path.join(__dirname, 'public/app/index.jsx')
+  path.join(__dirname, 'public/app/index.jsx'),
+  path.join(__dirname, 'public/app/main.css')
   ],
   output: {
     path: path.join(__dirname, '/public/app/'),
@@ -52,7 +53,7 @@ module.exports = {
       }, 
       {
         test: /\.css$/,
-        loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
+        loaders: ['style', 'css']
       }
     ]
   }
