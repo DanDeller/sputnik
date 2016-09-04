@@ -23,8 +23,8 @@ describe('API', () => {
 
 	// TESTS FOR REACT COMPONENTS
 	describe('Each note:', () => {
-		it("should have the class 'singleNote'", function() {
-			expect(shallow(<Note />).is('.singleNote')).to.equal(true);
+		it("should have the class 'note'", function() {
+			expect(shallow(<Note />).is('.note')).to.equal(true);
 		});
 	});
 
