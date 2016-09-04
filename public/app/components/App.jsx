@@ -20,16 +20,16 @@ export default class App extends React.Component {
 	}
 	render() {
 		const {notes} = this.state;
-
 		return (
 			<div>
-			<button onClick = {this.addNote}> + </button>
+				<button onClick = {this.addNote}> + </button>
 				<Notes
-          notes={notes}
-          onNoteClick={this.activateNoteEdit}
-          onEdit={this.editNote}
-          onDelete={this.deleteNote}
-          />			</div>
+					notes={notes}
+					onNoteClick={this.activateNoteEdit}
+					onEdit={this.editNote}
+					onDelete={this.deleteNote}
+				/>			
+			</div>
 		);
 	}
 	addNote = () => {
