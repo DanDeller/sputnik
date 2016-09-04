@@ -8,7 +8,6 @@ import {expect} from 'chai';
 
 import Note from '../public/app/components/Note';
 import Notes from '../public/app/components/Notes';
-const classnames = require('classnames');
 
 // used to call mount() before global document is loaded
 const jsdom = require('jsdom');

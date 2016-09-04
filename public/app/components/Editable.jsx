@@ -1,5 +1,5 @@
 import React from 'react';
-const classnames = require('classnames');
+// const classnames = require('classnames');
 
 const Editable = ({editing, value, onEdit, className}) => { 
 	if(editing) {

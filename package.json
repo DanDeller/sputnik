@@ -26,6 +26,7 @@
     "babel-relay-plugin-loader": "^0.9.0",
     "badges": "^1.1.2",
     "body-parser": "^1.15.2",
+    "classnames": "^2.2.5",
     "clean-webpack-plugin": "^0.1.10",
     "css-loader": "^0.23.1",
     "eslint": "2.13.1",
