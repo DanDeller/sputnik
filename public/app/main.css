@@ -2,25 +2,21 @@ body {
 	background-color: #fff;
 	font-family: sans-serif;
 }
-
 .app {
 	background-color: green;
 	height: 50px;
 	border: 1px solid blue;
 }
-
 .notes {
 	margin: 0.5em;
 	padding-left: 0;
 	max-width: 10em;
 	list-style: none;
 }
-
 .add-note {
 	background-color: #fdfdfd;
 	border: 1px solid #ccc;
 }
-
 .note {
 	overflow: auto;
 	margin-bottom: 0.5em;

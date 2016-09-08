@@ -16,7 +16,7 @@ Editable.Value = ({value, ...props}) => (
 // 	render() {
 // 		const {className, value, ...props} = this.props;
 // 		return <input
-// 			className = {classnames('edit', className)}
+// 			// className = {classnames('edit', className)}
 // 			type="text"
 // 			autoFocus = {true}
 // 			defaultValue = {value}

@@ -12,7 +12,7 @@ export default ({
     <li key = {id}>
     	<Note onClick={onNoteClick.bind(null, id)}>
         <Editable
-        		className = 'editable'
+        	className = 'editable'
            	editing={editing}
           	value={task}
           	onEdit={onEdit.bind(null, id)} />

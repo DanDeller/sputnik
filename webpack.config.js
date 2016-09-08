@@ -40,11 +40,12 @@ module.exports = {
         ],
         exclude: /node_modules/,
         loaders: [
-          'react-hot'
+          'react-hot',
+          'babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
         ],
         loader: 'babel',
         query: {
-          "presets": ["es2015", "react", "react-hmre", "stage-0"]
+          "presets": ["react", "es2015", "stage-0", "react-hmre"]
         }
       }, 
       {
