@@ -2,15 +2,16 @@ import React from 'react';
 import uuid from 'uuid';
 import { Link } from 'react-router'
 import Notes from './Notes';
+import NavLink from './NavLink';
 
 export default class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Sputnik</h1>
+				<h2>Sputnik</h2>
 				<ul role="nav">
-					<li><Link to='/'>Home</Link></li>
-					<li><Link to='/list'>Kanban</Link></li>
+					<li><NavLink to='/'>Home</NavLink></li>
+					<li><NavLink to='/list'>Kanban</NavLink></li>
 				</ul>
 
 				{this.props.children}

@@ -7,6 +7,9 @@ body {
 	height: 50px;
 	border: 1px solid blue;
 }
+.active {
+	color: green;
+}
 .notes {
 	margin: 0.5em;
 	padding-left: 0;
