@@ -12,8 +12,6 @@ if (process.env.NODE_ENV !== 'production') {
 render((
   <Router history={hashHistory}>
   	<Route path="/" component={App}>
-  		{/* make them children of `App` */}
-    	<Route path="/" component={App}/>
     	<Route path="/list" component={List}/>
     </Route>
   </Router>
