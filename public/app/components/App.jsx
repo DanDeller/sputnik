@@ -7,10 +7,14 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Home</h1>
+				<h1>Sputnik</h1>
 				<ul role="nav">
-					<li><Link to="/list">Kanban</Link></li>
+					<li><Link to='/'>Home</Link></li>
+					<li><Link to='/list'>Kanban</Link></li>
 				</ul>
+
+				{this.props.children}
+
 			</div>
 		);
 	}
