@@ -8,13 +8,12 @@ export default ({
 	onEdit = () => {}, 
 	onDelete = () => {} 
 }) => (
-  <div>
-    <p>hey</p>
+  <div className='kanban-container'>
 	<ul className = 'notes'>{notes.map(({id, editing, task}) =>
         <li key = {id}>
           <Note onClick={onNoteClick.bind(null, id)}>
             <Editable
-            		className = 'editable'
+                  className = 'editable'
                	editing={editing}
               	value={task}
               	onEdit={onEdit.bind(null, id)} />

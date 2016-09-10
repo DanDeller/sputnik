@@ -1,0 +1,88 @@
+body {
+	background-color: #fff;
+	font-family: sans-serif;
+}
+.kanban-container {
+	width: 50%;
+	background-color: #f2f2f2;
+}
+.active {
+	color: #4c4c4c;
+}
+.notes {
+	margin: 0.5em;
+	padding-left: 0;
+	max-width: 10em;
+	list-style: none;
+}
+.add-note {
+	background-color: #fdfdfd;
+	border: 1px solid #ccc;
+}
+.title {
+	margin: 0 0 20px 0;
+}
+.note {
+	overflow: auto;
+	margin-bottom: 0.5em;
+	padding: 0.5em;
+	background-color: #fdfdfd;
+	box-shadow: 0 0 0.3em .03em rgba(0,0,0,.3);
+	&:hover {
+		box-shadow: 0 0 0.3em .03em rgba(0,0,0,.7);
+		transition: .6s;
+	}
+	&:hover .delete {
+		visibility: visible;
+	}
+	.value {
+		display: inline-block;
+	}
+	.editable {
+		float: left;
+	}
+	.delete {
+		float: right;
+		padding: 0;
+		background-color: #fdfdfd;
+		border: none;
+		cursor: pointer;
+		visibility: hidden;
+	}
+}
+.kanban-wrap {
+	width: 50%;
+	min-height: 400px;
+	padding: 20px;
+	box-shadow: 0 0 0.3em 0.03em #000000;
+	background-color: #f2f2f2;
+}
+.nav {
+	width: 100%;
+	ul {
+		margin: 0 0 25px 0;
+		padding: 20px 0;
+		list-style-type: none;
+		background-color: #ccc;
+		li {
+			display: inline-block;
+			margin: 0 0 0 20px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

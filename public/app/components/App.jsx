@@ -7,12 +7,14 @@ import NavLink from './NavLink';
 export default class App extends React.Component {
 	render() {
 		return (
-			<div>
-				<h2>Sputnik</h2>
-				<ul role="nav">
-					<li><NavLink to='/'>Home</NavLink></li>
-					<li><NavLink to='/list'>Kanban</NavLink></li>
-				</ul>
+			<div className='kanban-wrap'>
+				<h2 className='title'>Sputnik</h2>
+				<div className='nav'>
+					<ul role="nav">
+						<li><NavLink to='/'>Home</NavLink></li>
+						<li><NavLink to='/list'>Kanban</NavLink></li>
+					</ul>
+				</div>
 
 				{this.props.children}
 

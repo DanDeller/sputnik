@@ -4,12 +4,15 @@ const validate = require('webpack-validator');
 const parts = require('./public/libs/parts');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractCSS = new ExtractTextPlugin('./public/app/main.css');
+const extractLESS = new ExtractTextPlugin('./public/app/main.less');
 
 module.exports = {
   entry: [
   'webpack-hot-middleware/client?reload=true',
   path.join(__dirname, 'public/app/index.jsx'),
-  path.join(__dirname, 'public/app/main.css')
+  path.join(__dirname, 'public/app/main.less')
   ],
   output: {
     path: path.join(__dirname, '/public/app/'),
@@ -26,7 +29,9 @@ module.exports = {
   new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('development')
-  })
+  }),
+  extractCSS,
+  extractLESS
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -55,6 +60,10 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: ['style', 'css']
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
       }
     ]
   }
