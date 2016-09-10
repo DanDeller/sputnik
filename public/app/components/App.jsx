@@ -11,7 +11,7 @@ export default class App extends React.Component {
 				<h2 className='title'>Sputnik</h2>
 				<div className='nav'>
 					<ul role="nav">
-						<li><NavLink to='/'>Home</NavLink></li>
+						<li><NavLink to='/home'>Home</NavLink></li>
 						<li><NavLink to='/list'>Kanban</NavLink></li>
 					</ul>
 				</div>

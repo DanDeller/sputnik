@@ -4,6 +4,7 @@ import { render } from 'react-dom'
 import App from './components/App';
 import { Router, Route, hashHistory } from 'react-router'
 import List from './components/List';
+import Home from './components/Home';
 
 if (process.env.NODE_ENV !== 'production') {
   React.Perf = require('react-addons-perf');
@@ -12,6 +13,7 @@ if (process.env.NODE_ENV !== 'production') {
 render((
   <Router history={hashHistory}>
   	<Route path="/" component={App}>
+  		<Route path="/home" component={Home}/>
     	<Route path="/list" component={List}/>
     </Route>
   </Router>
