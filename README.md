@@ -2,7 +2,6 @@
 [![npm](https://img.shields.io/npm/v/npm.svg?maxAge=2592000)]()
 [![npm version](https://badge.fury.io/js/express.svg)](https://badge.fury.io/js/express)
 [![devDependency Status](https://david-dm.org/dwyl/esta/dev-status.svg)](https://david-dm.org/dwyl/esta#info=devDependencies)
-[![Codacy grade](https://img.shields.io/codacy/grade/e27821fb6289410b8f58338c7e0bc686.svg?maxAge=2592000)]()
 
 # Sputnik
 <h2>A node/express app built on docker.</h2>
