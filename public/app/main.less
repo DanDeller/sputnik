@@ -6,49 +6,56 @@ body {
 	width: 50%;
 	background-color: #f2f2f2;
 }
+button {
+	outline: none;
+}
 .active {
 	color: #4c4c4c;
 }
 .notes {
-	margin: 0.5em;
-	padding-left: 0;
-	max-width: 10em;
+	margin: 0 0 0 -40px;
 	list-style: none;
+	.note {
+		overflow: auto;
+		margin-bottom: 0.5em;
+		padding: 0.5em;
+		background-color: #fdfdfd;
+		box-shadow: 0 0 0.3em .03em rgba(0,0,0,.3);
+		transition: .6s;
+		&:hover {
+			box-shadow: 0 0 0.3em .03em rgba(0,0,0,.7);
+		}
+		&:hover .delete {
+			visibility: visible;
+		}
+		.value {
+			display: inline-block;
+		}
+		.editable {
+			float: left;
+		}
+		.delete {
+			float: right;
+			padding: 0;
+			background-color: #fdfdfd;
+			border: none;
+			cursor: pointer;
+			visibility: hidden;
+		}
+	}
 }
 .add-note {
+	margin: 0 0 20px 0;
 	background-color: #fdfdfd;
 	border: 1px solid #ccc;
+	cursor: pointer;
+	transition: .6s;
+	&:hover {
+		box-shadow: 0 0 0.3em .03em rgba(0,0,0,.7);;
+	}
 }
 .title {
 	margin: 0 0 20px 0;
-}
-.note {
-	overflow: auto;
-	margin-bottom: 0.5em;
-	padding: 0.5em;
-	background-color: #fdfdfd;
-	box-shadow: 0 0 0.3em .03em rgba(0,0,0,.3);
-	&:hover {
-		box-shadow: 0 0 0.3em .03em rgba(0,0,0,.7);
-		transition: .6s;
-	}
-	&:hover .delete {
-		visibility: visible;
-	}
-	.value {
-		display: inline-block;
-	}
-	.editable {
-		float: left;
-	}
-	.delete {
-		float: right;
-		padding: 0;
-		background-color: #fdfdfd;
-		border: none;
-		cursor: pointer;
-		visibility: hidden;
-	}
 }
 .kanban-wrap {
 	width: 50%;
