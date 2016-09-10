@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/DanDeller/sputnik.svg?branch=master)](https://travis-ci.org/DanDeller/sputnik)
+[![npm](https://img.shields.io/npm/v/npm.svg?maxAge=2592000)]()
 [![npm version](https://badge.fury.io/js/express.svg)](https://badge.fury.io/js/express)
 [![devDependency Status](https://david-dm.org/dwyl/esta/dev-status.svg)](https://david-dm.org/dwyl/esta#info=devDependencies)
 
