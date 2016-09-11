@@ -8,9 +8,9 @@ const Editable = ({editing, value, onEdit, className}) => {
 	return <Editable.Value value={value} />; 
 };
 
-Editable.Value = ({value, ...props}) => (
-	<span {...props}>{value}</span>
-)
+// Editable.Value = ({value, ...props}) => (
+// 	<span {...props}>{value}</span>
+// )
 
 // class Edit extends React.Component {
 // 	render() {
