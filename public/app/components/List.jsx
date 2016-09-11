@@ -1,9 +1,9 @@
 import React from 'react'
 import uuid from 'uuid';
 import Notes from './Notes';
-import connect from '../libs/connect';
+// import connect from '../libs/connect';
 
-class App extends React.Component {
+export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -71,7 +71,6 @@ class App extends React.Component {
 	}
 }
 
-
-export default connect(() => ({
-  test: 'test'
-}))(App)
+// export default connect(() => ({
+//   test: 'test'
+// }))(App)

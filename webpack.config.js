@@ -50,6 +50,7 @@ module.exports = {
         ],
         loader: 'babel',
         query: {
+          "plugins": ['transform-decorators-legacy' ],
           "presets": ["react", "es2015", "stage-0", "react-hmre"]
         }
       }, 

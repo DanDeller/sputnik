@@ -10,9 +10,11 @@ export default (state, actions) => {
 }
 
 function connect(state = () => {}, actions = {}, target) {
+
 	class Connect extends React.Component { componentDidMount() {
 		const {flux} = this.context; flux.FinalStore.listen(this.handleChange);
 	}
+
 	componentWillUnmount() {
 		const {flux} = this.context; flux.FinalStore.unlisten(this.handleChange);
 	} render() {
@@ -23,9 +25,10 @@ function connect(state = () => {}, actions = {}, target) {
 			{}, this.props, state(composedStores), actions )}
 		); 
 	}
+
 	handleChange = () => { 
 		this.forceUpdate();
-	} 
+	}
 }
 Connect.contextTypes = {
 	flux: React.PropTypes.object.isRequired
@@ -43,3 +46,6 @@ function composeStores(stores) {
    });
 	return ret; 
 }
+
+
+
