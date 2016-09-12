@@ -15,8 +15,7 @@ render((
   <Router history={hashHistory}>
   	<Route path="/" component={App}>
   	   <IndexRoute component={Home}/>
-  		<Provider></Provider>
-    	<Route path="/list" component={List}/>
+    	<Provider><Route path="/list" component={List}/></Provider>
     </Route>
   </Router>
 ), document.getElementById('app'))
