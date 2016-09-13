@@ -46,6 +46,3 @@ function composeStores(stores) {
    });
 	return ret; 
 }
-
-
-
