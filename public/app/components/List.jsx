@@ -1,6 +1,6 @@
 import React from 'react'
 import uuid from 'uuid';
-import Notes from './Notes';
+import People from './People';
 import $ from 'jquery'; 
 // import connect from '../libs/connect';
 
@@ -37,7 +37,7 @@ export default class App extends React.Component {
 		return (
 			<div>
 				<button onClick = {this.addNote} className = 'add-note'> + </button>
-				<Notes
+				<People
 					people={people}
 					onNoteClick={this.activateNoteEdit}
 					onEdit={this.editNote}

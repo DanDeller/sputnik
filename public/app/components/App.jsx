@@ -1,7 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
 import { Link } from 'react-router'
-import Notes from './Notes';
+import People from './People';
 import NavLink from './NavLink';
 
 export default class App extends React.Component {
