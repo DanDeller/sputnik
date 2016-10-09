@@ -1,6 +1,7 @@
 import React from 'react'
 import uuid from 'uuid';
 import Notes from './Notes';
+import $ from 'jquery'; 
 // import connect from '../libs/connect';
 
 export default class App extends React.Component {
@@ -34,6 +35,18 @@ export default class App extends React.Component {
 			</div>
 		)
 	}
+	componentDidMount =  () => {
+   	$.get('/people', function(data) {
+   		data.map(value => {
+   			this.setState({
+					notes: this.state.notes.concat([{
+						id: value.id,
+						task: value.name
+					}])
+				})
+   		})
+    	}.bind(this));
+  	}
 	addNote = () => {
 		this.setState({
 			notes: this.state.notes.concat([{
