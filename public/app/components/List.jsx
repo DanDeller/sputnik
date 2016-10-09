@@ -8,26 +8,37 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			notes: [
+			people: [
 			{
 				id: uuid.v4(),
 				task: 'Learn React'
 			},
 			{
 				id: uuid.v4(),
-				task: 'Learn react some more!'
+				task: 'Do some other stuff'
 			}
 			]
 		};
 	}
+	componentDidMount  = () => {
+   	$.get('/people', function(data) {
+   		data.map(person => {
+   			this.setState({
+					people: this.state.people.concat([{
+						id: person.id,
+						task: person.name
+					}])
+				})
+   		})
+    	}.bind(this));
+  	}
 	render() {
-		const {notes} = this.state;
+		const {people} = this.state;
 		return (
 			<div>
-				{this.props.test}
 				<button onClick = {this.addNote} className = 'add-note'> + </button>
 				<Notes
-					notes={notes}
+					people={people}
 					onNoteClick={this.activateNoteEdit}
 					onEdit={this.editNote}
 					onDelete={this.deleteNote}
@@ -35,21 +46,9 @@ export default class App extends React.Component {
 			</div>
 		)
 	}
-	componentDidMount =  () => {
-   	$.get('/people', function(data) {
-   		data.map(value => {
-   			this.setState({
-					notes: this.state.notes.concat([{
-						id: value.id,
-						task: value.name
-					}])
-				})
-   		})
-    	}.bind(this));
-  	}
 	addNote = () => {
 		this.setState({
-			notes: this.state.notes.concat([{
+			people: this.state.people.concat([{
 				id: uuid.v4(),
 				task: 'new task'
 			}])
@@ -57,7 +56,7 @@ export default class App extends React.Component {
 	}
 	activateNoteEdit = (id) => {
 		this.setState({
-			notes: this.state.notes.map(note => {
+			people: this.state.people.map(note => {
 				if (note.id === id) {
 					note.editing = true;
 				}
@@ -67,19 +66,19 @@ export default class App extends React.Component {
 	}
 	editNote = (id, task) => {
 		this.setState({
-			notes: this.state.notes.map(note => {
-				if (note.id === id) {
-					note.editing = false;
-					note.task = task;
+			people: this.state.people.map(person => {
+				if (person.id === id) {
+					person.editing = false;
+					person.task = task;
 				}
-				return note;
+				return person;
 			})
 		}); 
 	}
 	deleteNote = (id, e) => {
 		e.stopPropagation();
 		this.setState({
-			notes: this.state.notes.filter(note => note.id !== id) 
+			people: this.state.people.filter(person => person.id !== id) 
 		});
 	}
 }

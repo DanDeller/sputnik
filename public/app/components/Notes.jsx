@@ -3,13 +3,13 @@ import Note from './Note';
 import Editable from './Editable';
 
 export default ({
-	notes,
+	people,
 	onNoteClick = () => {},
 	onEdit = () => {}, 
 	onDelete = () => {} 
 }) => (
   <div className='kanban-container'>
-	<ul className = 'notes'>{notes.map(({id, editing, task}) =>
+	<ul className = 'notes'>{people.map(({id, editing, task}) =>
         <li key = {id}>
           <Note onClick={onNoteClick.bind(null, id)}>
             <Editable
