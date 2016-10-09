@@ -13,10 +13,10 @@ export default ({
         <li key = {id}>
           <Person onClick={onNoteClick.bind(null, id)}>
             <Editable
-              className = 'editable'
-              editing={editing}
-            	 value={task}
-            	 onEdit={onEdit.bind(null, id)} />
+            	className = 'editable'
+             	editing={editing}
+           	 	value={task}
+           		onEdit={onEdit.bind(null, id)} />
             <button className = 'delete' onClick={onDelete.bind(null, id)}>x</button>
           </Person>
         </li>

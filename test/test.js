@@ -5,9 +5,8 @@ import app from '../server.js';
 import React from 'react';
 import {mount, shallow} from 'enzyme';
 import {expect} from 'chai';
-
-import Note from '../public/app/components/Note';
-import Notes from '../public/app/components/Notes';
+import People from '../public/app/components/People';
+import Person from '../public/app/components/Person';
 
 // used to call mount() before global document is loaded
 const jsdom = require('jsdom');
@@ -22,16 +21,16 @@ chai.use(chaiHttp);
 describe('API', () => {
 
 	// TESTS FOR REACT COMPONENTS
-	describe('Each note:', () => {
+	describe('Each person:', () => {
 		it("should have the class 'note'", function() {
-			expect(shallow(<Note />).is('.note')).to.equal(true);
+			expect(shallow(<Person />).is('.note')).to.equal(true);
 		});
 	});
 
-	describe('<Notes />', () => {
-		it('should have the Note component', () => {
-			const wrapper = mount(<Note></Note>);
-			expect(wrapper.contains(<Note></Note>)).to.equal(true);
+	describe('<People />', () => {
+		it('should have the Person component', () => {
+			const wrapper = mount(<Person></Person>);
+			expect(wrapper.contains(<Person></Person>)).to.equal(true);
 		});
 	});
 
