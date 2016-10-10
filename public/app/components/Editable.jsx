@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import $ from 'jquery';
 
 const Editable = ({editing, value, onEdit, className}) => { 
 	if(editing) {
@@ -32,9 +33,12 @@ class Edit extends React.Component {
 	}
 	finishEdit = (e) => {
 		const value = e.target.value;
-		if(this.props.onEdit) {
+		if (this.props.onEdit) {
 			this.props.onEdit(value);
-		} 
+		}
+		$.post('/people', function(data) {
+			console.log(data)
+		})
 	}
 }
 

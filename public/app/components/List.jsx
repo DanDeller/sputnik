@@ -8,30 +8,9 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			people: [
-			{
-				id: uuid.v4(),
-				task: 'Learn React'
-			},
-			{
-				id: uuid.v4(),
-				task: 'Do some other stuff'
-			}
-			]
+			people: []
 		};
 	}
-	componentDidMount  = () => {
-   	$.get('/people', function(data) {
-   		data.map(person => {
-   			this.setState({
-					people: this.state.people.concat([{
-						id: person.id,
-						task: person.name
-					}])
-				})
-   		})
-    	}.bind(this));
-  	}
 	render() {
 		const {people} = this.state;
 		return (
@@ -46,6 +25,18 @@ export default class App extends React.Component {
 			</div>
 		)
 	}
+	componentDidMount  = () => {
+   	$.get('/people', function(data) {
+   		data.map(person => {
+   			this.setState({
+					people: this.state.people.concat([{
+						id: person.id,
+						task: person.name
+					}])
+				})
+   		})
+    	}.bind(this));
+  	}
 	addNote = () => {
 		this.setState({
 			people: this.state.people.concat([{
