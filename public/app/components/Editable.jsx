@@ -19,10 +19,10 @@ class Edit extends React.Component {
 		return <input
 			className = {classnames('edit', className)}
 			type="text"
-			autoFocus = {true}
-			defaultValue = {value}
-			onBlur = {this.finishEdit}
-			onKeyPress = {this.checkEnter}
+			autoFocus={true}
+			defaultValue={value}
+			onBlur={this.finishEdit}
+			onKeyPress={this.checkEnter}
 			{...props} 
 		/>;
 	}
@@ -31,13 +31,19 @@ class Edit extends React.Component {
 			this.finishEdit(e);
 		}
 	}
-	finishEdit = (e) => {
+	finishEdit = (e, id) => {
 		const value = e.target.value;
 		if (this.props.onEdit) {
 			this.props.onEdit(value);
 		}
-		$.post('/people', function(data) {
-			console.log(data)
+		console.log(value + ' ' + id)
+		$.ajax({
+			type: 'POST',
+			url: '/people',
+			data: {
+				id: id,
+				name: value
+			}
 		})
 	}
 }
