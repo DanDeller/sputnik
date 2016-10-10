@@ -1,5 +1,7 @@
 rethinkdb:
   image: rethinkdb
+  ports:
+    - "8080:8080"
 web:
   build: .
   working_dir: /src
