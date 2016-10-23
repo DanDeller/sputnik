@@ -41,6 +41,8 @@ if (isDeveloping) {
   });
 }
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 _.each(endpoints, (name) => {
   app.use(name);
 });

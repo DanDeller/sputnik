@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
 import uuid from 'uuid';
 import People from './People';
-import $ from 'jquery'; 
-// import connect from '../libs/connect';
+import $ from 'jquery';
 
 export default class App extends React.Component {
 	constructor(props) {
@@ -15,7 +15,10 @@ export default class App extends React.Component {
 		const {people} = this.state;
 		return (
 			<div>
-				<button onClick = {this.addNote} className = 'add-note'> + </button>
+				<form>
+					<input type='text' id="task" ref="task" />
+					<button onClick = {this.addNote} className = 'add-note'> + </button>
+				</form>
 				<People
 					people={people}
 					onNoteClick={this.activateNoteEdit}
@@ -38,10 +41,19 @@ export default class App extends React.Component {
     	}.bind(this));
   	}
 	addNote = () => {
+		var task = React.findDOMNode(this.refs.task).value.trim();
+		$.ajax({
+			type: 'POST',
+			url: '/people',
+			data: {
+				id: uuid.v4(),
+				name: task
+			}
+		});
 		this.setState({
 			people: this.state.people.concat([{
 				id: uuid.v4(),
-				task: 'new task'
+				task: task
 			}])
 		})
 	}
@@ -68,6 +80,13 @@ export default class App extends React.Component {
 	}
 	deleteNote = (id, e) => {
 		e.stopPropagation();
+		$.ajax({
+		    url: '/people',
+		    type: 'DELETE',
+		    success: function(result) {
+		        console.log(result);
+		    }
+		});
 		this.setState({
 			people: this.state.people.filter(person => person.id !== id) 
 		});

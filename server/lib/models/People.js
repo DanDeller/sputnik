@@ -38,6 +38,7 @@ module.exports = {
 			if (err) return callback(err);
 			r.db(config.db.name).table(config.db.tables.people)
 			.insert({
+				id: currentPerson.id,
 				name: currentPerson.name
 			})
 			.run(connection)
@@ -58,9 +59,6 @@ module.exports = {
 			.get(id)
 			.update(query)
 			.run(connection)
-			.then((cursor) => {
-				return cursor.toArray();
-			})
 			.then((response) => {
 				return callback(null, response);
 			})
@@ -73,7 +71,7 @@ module.exports = {
 		this.connect((err, connection) => {
 			const currentId = request.query;
 			if (err) return callback(err)
-				r.db(config.db.name).table(config.db.tables.people)
+			r.db(config.db.name).table(config.db.tables.people)
 			.get(currentId.id)
 			.delete()
 			.run(connection)
