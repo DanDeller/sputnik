@@ -41,7 +41,7 @@ export default class App extends React.Component {
     	}.bind(this));
   	}
 	addNote = () => {
-		var task = React.findDOMNode(this.refs.task).value.trim();
+	  const task = React.findDOMNode(this.refs.task).value.trim();
 		$.ajax({
 			type: 'POST',
 			url: '/people',
@@ -52,7 +52,6 @@ export default class App extends React.Component {
 		});
 		this.setState({
 			people: this.state.people.concat([{
-				id: uuid.v4(),
 				task: task
 			}])
 		})
@@ -80,9 +79,13 @@ export default class App extends React.Component {
 	}
 	deleteNote = (id, e) => {
 		e.stopPropagation();
+		console.log(id);
 		$.ajax({
 		    url: '/people',
 		    type: 'DELETE',
+		    data: {
+		    	id: id
+		    },
 		    success: function(result) {
 		        console.log(result);
 		    }
