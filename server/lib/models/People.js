@@ -69,7 +69,7 @@ module.exports = {
 	},
 	delete: function(request, callback) {
 		this.connect((err, connection) => {
-			const currentId = request.body;
+			const currentId = request.query;
 			if (err) return callback(err)
 			r.db(config.db.name).table(config.db.tables.people)
 			.get(currentId.id)
