@@ -38,8 +38,8 @@ class Edit extends React.Component {
 		}
 		console.log(value + ' ' + id)
 		$.ajax({
-			type: 'PATCH',
 			url: '/people',
+			type: 'PATCH',
 			data: {
 				id: id,
 				name: value

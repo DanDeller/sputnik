@@ -9,13 +9,13 @@ export default ({
 	onDelete = () => {} 
 }) => (
   <div className='kanban-container'>
-	<ul className='notes'>{people.map(({id, editing, task}) =>
+	<ul className='notes'>{people.map(({id, editing, name}) =>
         <li key={id}>
           <Person onClick={onNoteClick.bind(null, id)}>
             <Editable
             	className = 'editable'
              	editing={editing}
-           	 	value={task}
+           	 	value={name}
            		onEdit={onEdit.bind(null, id)} />
             <button className = 'delete' onClick={onDelete.bind(null, id)}>x</button>
           </Person>

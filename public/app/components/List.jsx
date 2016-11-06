@@ -16,7 +16,7 @@ export default class App extends React.Component {
 		return (
 			<div>
 				<form>
-					<input type='text' id="task" ref="task" />
+					<input type='text' id="name" ref="name" />
 					<button onClick = {this.addNote} className = 'add-note'> + </button>
 				</form>
 				<People
@@ -31,28 +31,29 @@ export default class App extends React.Component {
 	componentDidMount  = () => {
    	$.get('/people', function(data) {
    		data.map(person => {
+   			console.log(person)
    			this.setState({
 					people: this.state.people.concat([{
 						id: person.id,
-						task: person.name
+						name: person.name
 					}])
 				})
    		})
     	}.bind(this));
   	}
 	addNote = () => {
-	  const task = React.findDOMNode(this.refs.task).value.trim();
+	  const name = React.findDOMNode(this.refs.name).value.trim();
 		$.ajax({
-			type: 'POST',
 			url: '/people',
+			type: 'POST',
 			data: {
 				id: uuid.v4(),
-				name: task
+				name: name
 			}
 		});
 		this.setState({
 			people: this.state.people.concat([{
-				task: task
+				name: name
 			}])
 		})
 	}
@@ -66,12 +67,25 @@ export default class App extends React.Component {
 			})
 		}); 
 	}
-	editNote = (id, task) => {
+	editNote = (id, name) => {
 		this.setState({
 			people: this.state.people.map(person => {
 				if (person.id === id) {
 					person.editing = false;
-					person.task = task;
+					person.name = name;
+					
+					$.ajax({
+						url: '/people',
+						type: 'PATCH',
+						data: {
+							id: id,
+							name: name
+						},
+						success: function(result) {
+					      console.log(result);
+					   }
+					});
+
 				}
 				return person;
 			})
@@ -79,7 +93,6 @@ export default class App extends React.Component {
 	}
 	deleteNote = (id, e) => {
 		e.stopPropagation();
-		console.log(id);
 		$.ajax({
 		    url: '/people',
 		    type: 'DELETE',
@@ -95,7 +108,3 @@ export default class App extends React.Component {
 		});
 	}
 }
-
-// export default connect(() => ({
-//   test: 'test'
-// }))(App)
