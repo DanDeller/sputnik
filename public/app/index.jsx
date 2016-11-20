@@ -6,6 +6,7 @@ import Provider from './components/Provider';
 import App from './components/App';
 import List from './components/List';
 import Home from './components/Home';
+import Login from './components/Views/Login';
 
 if (process.env.NODE_ENV !== 'production') {
   React.Perf = require('react-addons-perf');
@@ -14,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
 render((
   <Router history={hashHistory}>
   	<Route path="/" component={App}>
-  	   <IndexRoute component={Home}/>
+  	   <IndexRoute component={Login}/>
     	<Provider><Route path="/list" component={List}/></Provider>
     </Route>
   </Router>
