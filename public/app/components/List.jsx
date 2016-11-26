@@ -42,7 +42,7 @@ export default class App extends React.Component {
     	}.bind(this));
   	}
 	addNote = () => {
-	  const name = React.findDOMNode(this.refs.name).value.trim();
+	  const name = ReactDOM.findDOMNode(this.refs.name).value.trim();
 		$.ajax({
 			url: '/people',
 			type: 'POST',

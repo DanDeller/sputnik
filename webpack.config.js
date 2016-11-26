@@ -1,11 +1,9 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
-const parts = require('./public/parts/parts');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 const extractCSS = new ExtractTextPlugin('./public/app/main.css');
 const extractLESS = new ExtractTextPlugin('./public/app/main.less');
 

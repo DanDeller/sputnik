@@ -53,10 +53,7 @@ module.exports = {
 	patch: function(request, callback) {
 		this.connect((err, connection) => {
 			const query = _.extend(request.body,request.params,request.query);
-			
 			const currentId = request.body;
-			console.log(currentId)
-			
 			const id = query.id;
 			if (err) return callback(err);
 			r.db(config.db.name).table(config.db.tables.people)

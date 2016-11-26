@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { render } from 'react-dom'
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
-import Provider from './components/Provider';
 import App from './components/App';
 import List from './components/List';
 import Home from './components/Home';
@@ -20,7 +19,7 @@ render((
   <Router history={hashHistory}>
   	<Route path="/" component={App}>
   	   <IndexRoute component={Login}/>
-    	<Provider><Route path="/list" component={List}/></Provider>
+    	<Route path="/list" component={List}/>
     </Route>
   </Router>
 ), document.getElementById('app'))

@@ -23,7 +23,6 @@ class Edit extends React.Component {
 			defaultValue={value}
 			onBlur={this.finishEdit}
 			onKeyPress={this.checkEnter}
-			{...props} 
 		/>;
 	}
 	checkEnter = (e) => {
