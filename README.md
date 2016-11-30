@@ -39,6 +39,8 @@ docker-compose build
 docker-compose up
 ```
 
+>Quick note: Alternatively you can run both of those commands by running `docker-compose up --build`
+
 <h3>Run tests</h3>
 ```
 mocha test
