@@ -49,7 +49,7 @@ mocha test
 [http://0.0.0.0:3000/](http://0.0.0.0:3000/)
 
 <h3>View rethinkdb data explorer</h3>
-[http://mynodeapp.docker:8080/](http://mynodeapp.docker:8080/)
+[http://0.0.0.0:8080/](http://0.0.0.0:8080/)
 
 <br>
 <br>
