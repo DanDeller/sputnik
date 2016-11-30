@@ -10,6 +10,12 @@
 <h3>Install Dinghy:</h3>
 [https://github.com/codekitchen/dinghy](https://github.com/codekitchen/dinghy)
 
+<h3>Install Docker for Mac:</h3>
+[https://docs.docker.com/docker-for-mac/](https://docs.docker.com/docker-for-mac/)
+
+<h3>Install Docker for Windows:</h3>
+[https://docs.docker.com/docker-for-windows/](https://docs.docker.com/docker-for-windows/)
+
 <h3>Clone sputnik repo</h3>
 ```
 git clone https://github.com/DanDeller/sputnik.git
