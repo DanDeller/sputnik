@@ -90,3 +90,8 @@ docker rmi 'image-id'
 ```
 docker rmi $(docker images -q)
 ```
+
+<h3>Force delete images</h3>
+```
+docker rmi -f $(docker images -q)
+```
