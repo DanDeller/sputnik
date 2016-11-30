@@ -75,6 +75,12 @@ docker images
 docker rm $(docker ps -a -q)
 ```
 
+<h3>Delete containers that are still running:</h3>
+```
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+```
+
 <h3>Delete images</h3>
 ```
 docker rmi 'image-id'
