@@ -40,9 +40,9 @@ docker-compose build
 
 >Quick note: You will only have to run this command line once UNLESS you make changes to your dockerfile. If changes are made the build will have to be run again.
 
-<h3>Build docker image:</h3>
+<h3>Start up Rethinkdb:</h3>
 ```
-docker-compose up
+docker-compose up -d rethinkdb
 ```
 
 >Quick note: Alternatively you can run both of those commands by running `docker-compose up --build`
